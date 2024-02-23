@@ -11,10 +11,10 @@ if(isset($_GET["level1"])) {
  // da definirame i syglasuwame imenata na promenliwite s ESP32
  
  
-   $servername = "localhost";
-   $username = "kvbbgcom_floodPrevention";
-   $password = "kv0889909595";
-   $database_name = "kvbbgcom_floodPrevention";
+   $servername = "***";
+   $username = "***";
+   $password = "***";
+   $database_name = "***";
  //imeto i parolata na bazata danni
  
  
