@@ -1,9 +1,9 @@
 <?php
 
-$dbhost = "localhost";
-$dbuser = "kvbbgcom_floodPrevention";
-$dbpass = "kv0889909595";
-$dbname = "kvbbgcom_floodPrevention";
+$dbhost = "***";
+$dbuser = "***";
+$dbpass = "***";
+$dbname = "***";
 
 if(!$con = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname))
 {
