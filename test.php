@@ -120,10 +120,10 @@
             </thead>
             <tbody>
                 <?php
-                $servername = "localhost";
-                $username = "kvbbgcom_floodPrevention";
-                $password = "kv0889909595";
-                $database = "kvbbgcom_floodPrevention";
+                $servername = "***";
+                $username = "***";
+                $password = "***";
+                $database = "***";
                 
                 $connection = new mysqli($servername, $username, $password, $database);
                 
@@ -174,7 +174,7 @@
     $count=1;
     
     
-    $sql="SELECT * FROM kvbbgcom_floodPrevention.devices WHERE `user_id`=?";
+    $sql="SELECT * FROM ***.devices WHERE `user_id`=?";
     echo $user_name_global;
     $stmt = $con->prepare($sql); 
     //$stmt->bind_param("s", $user_name_global); //i for integer, d for double (float), s for string, b for blobs;
