@@ -1,10 +1,10 @@
 <?php
 
 // Вашият код за връзка с базата данни и конфигурация
-$hostname = "localhost";
-$username = "kvbbgcom_floodPrevention";
-$password = "kv0889909595";
-$database = "kvbbgcom_floodPrevention";
+$hostname = "***";
+$username = "***";
+$password = "***";
+$database = "***";
 
 
 // Create a connection
