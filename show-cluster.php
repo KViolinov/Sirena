@@ -140,10 +140,10 @@ session_start();
             </thread>
             <tbody>
                 <?php
-                $servername = "localhost";
-                $username = "kvbbgcom_floodPrevention";
-                $password = "kv0889909595";
-                $database = "kvbbgcom_floodPrevention";
+                $servername = "***";
+                $username = "***";
+                $password = "***";
+                $database = "***";
                 
                 $connection = new mysqli($servername, $username, $password, $database);
                 
