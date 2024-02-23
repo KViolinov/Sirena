@@ -192,10 +192,10 @@
             </thread>
             <tbody>
             <?php
-                $servername = "localhost";
-                $username = "kvbbgcom_floodPrevention";
-                $password = "kv0889909595";
-                $database = "kvbbgcom_floodPrevention";
+                $servername = "***";
+                $username = "***";
+                $password = "***";
+                $database = "***";
                 
                 $connection = new mysqli($servername, $username, $password, $database);
                 
@@ -295,10 +295,10 @@
 <?php
 
 // Replace these with your actual database credentials
-$hostname = "localhost";
-$username = "kvbbgcom_floodPrevention";
-$password = "kv0889909595";
-$database = "kvbbgcom_floodPrevention";
+$hostname = "***";
+$username = "***";
+$password = "***";
+$database = "***";
 
 include 'cron.php';
 
