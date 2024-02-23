@@ -1,0 +1,651 @@
+[08-Nov-2023 16:44:35 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:109
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 109
+[08-Nov-2023 16:44:39 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-devices.php:113
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 113
+[08-Nov-2023 17:23:53 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:109
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 109
+[08-Nov-2023 17:26:50 Europe/Sofia] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 5
+[08-Nov-2023 17:26:50 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/show-cluster.php:1) in /home/kvbbgcom/public_html/Sirena/functions.php on line 19
+[08-Nov-2023 17:27:02 Europe/Sofia] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 5
+[08-Nov-2023 17:27:02 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/show-cluster.php:1) in /home/kvbbgcom/public_html/Sirena/functions.php on line 19
+[08-Nov-2023 17:27:11 Europe/Sofia] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 4
+[08-Nov-2023 17:27:11 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/show-devices.php:1) in /home/kvbbgcom/public_html/Sirena/functions.php on line 19
+[08-Nov-2023 17:28:34 Europe/Sofia] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 4
+[08-Nov-2023 17:28:34 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/show-devices.php:1) in /home/kvbbgcom/public_html/Sirena/functions.php on line 19
+[08-Nov-2023 17:30:03 Europe/Sofia] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 4
+[08-Nov-2023 17:30:03 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/show-devices.php:1) in /home/kvbbgcom/public_html/Sirena/functions.php on line 19
+[08-Nov-2023 17:30:05 Europe/Sofia] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 5
+[08-Nov-2023 17:30:05 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/show-cluster.php:1) in /home/kvbbgcom/public_html/Sirena/functions.php on line 19
+[08-Nov-2023 17:30:46 Europe/Sofia] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 4
+[08-Nov-2023 17:30:46 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/show-devices.php:1) in /home/kvbbgcom/public_html/Sirena/functions.php on line 19
+[18-Nov-2023 21:21:33 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[18-Nov-2023 21:31:10 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[18-Nov-2023 21:31:11 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-cluster.php:106
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-cluster.php on line 106
+[18-Nov-2023 21:31:18 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/delete-cluster.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-cluster.php on line 102
+[18-Nov-2023 21:48:25 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[18-Nov-2023 21:48:44 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-cluster.php:106
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-cluster.php on line 106
+[18-Nov-2023 21:48:56 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[18-Nov-2023 21:49:42 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[18-Nov-2023 21:50:21 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[18-Nov-2023 21:50:23 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-devices.php:117
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 117
+[18-Nov-2023 21:53:48 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 102
+[18-Nov-2023 21:54:30 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/delete-devices.php:104
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 104
+[18-Nov-2023 21:54:33 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-devices.php:117
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 117
+[18-Nov-2023 21:55:28 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-devices.php:117
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 117
+[18-Nov-2023 21:55:31 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[18-Nov-2023 21:57:51 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[18-Nov-2023 21:57:54 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-cluster.php:106
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-cluster.php on line 106
+[18-Nov-2023 21:58:00 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/delete-cluster.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-cluster.php on line 102
+[18-Nov-2023 21:58:01 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/delete-cluster.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-cluster.php on line 102
+[18-Nov-2023 21:58:02 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-devices.php:117
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 117
+[18-Nov-2023 21:58:05 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 102
+[18-Nov-2023 21:59:20 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 102
+[18-Nov-2023 21:59:26 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[18-Nov-2023 21:59:29 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-cluster.php:106
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-cluster.php on line 106
+[18-Nov-2023 22:47:34 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[18-Nov-2023 22:48:08 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-cluster.php:106
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-cluster.php on line 106
+[18-Nov-2023 23:14:17 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[18-Nov-2023 23:14:42 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[18-Nov-2023 23:18:30 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[18-Nov-2023 23:18:45 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[18-Nov-2023 23:19:25 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[18-Nov-2023 23:19:57 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[18-Nov-2023 23:19:58 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/kvbbgcom/public_html/Sirena/show-devices.php:118
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 118
+[18-Nov-2023 23:20:02 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[18-Nov-2023 23:20:30 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/kvbbgcom/public_html/Sirena/show-devices.php:118
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 118
+[19-Nov-2023 00:17:12 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/kvbbgcom/public_html/Sirena/show-devices.php:118
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 118
+[19-Nov-2023 00:19:20 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/kvbbgcom/public_html/Sirena/show-devices.php:118
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 118
+[19-Nov-2023 12:36:53 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/kvbbgcom/public_html/Sirena/show-devices.php:118
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 118
+[19-Nov-2023 12:38:40 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/kvbbgcom/public_html/Sirena/show-devices.php:118
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 118
+[19-Nov-2023 12:54:46 Europe/Sofia] PHP Warning:  Use of undefined constant device_description_var - assumed 'device_description_var' (this will throw an Error in a future version of PHP) in /home/kvbbgcom/public_html/Sirena/insert-device-in-db.php on line 14
+[19-Nov-2023 12:54:46 Europe/Sofia] PHP Warning:  Use of undefined constant device_description_var - assumed 'device_description_var' (this will throw an Error in a future version of PHP) in /home/kvbbgcom/public_html/Sirena/insert-device-in-db.php on line 106
+[19-Nov-2023 13:06:46 Europe/Sofia] PHP Parse error:  syntax error, unexpected '$_POST' (T_VARIABLE) in /home/kvbbgcom/public_html/Sirena/insert-device-in-db.php on line 20
+[19-Nov-2023 15:45:33 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[19-Nov-2023 15:46:36 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/kvbbgcom/public_html/Sirena/show-devices.php:118
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 118
+[19-Nov-2023 17:41:10 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/kvbbgcom/public_html/Sirena/show-devices.php:118
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 118
+[19-Nov-2023 18:36:15 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/kvbbgcom/public_html/Sirena/show-devices.php:118
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 118
+[19-Nov-2023 18:43:05 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/kvbbgcom/public_html/Sirena/show-devices.php:118
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 118
+[19-Nov-2023 18:43:09 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/kvbbgcom/public_html/Sirena/show-devices.php:118
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 118
+[19-Nov-2023 18:45:50 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[19-Nov-2023 18:45:51 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[19-Nov-2023 18:45:52 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[19-Nov-2023 18:46:57 Europe/Sofia] PHP Fatal error:  Uncaught Error: Cannot pass parameter 2 by reference in /home/kvbbgcom/public_html/Sirena/show-devices.php:119
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-devices.php on line 119
+[19-Nov-2023 18:52:40 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 102
+[19-Nov-2023 18:53:29 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 102
+[19-Nov-2023 18:53:33 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 102
+[19-Nov-2023 18:54:10 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 102
+[19-Nov-2023 18:54:13 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 102
+[19-Nov-2023 18:54:28 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 102
+[19-Nov-2023 18:55:16 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 102
+[19-Nov-2023 18:55:26 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 102
+[19-Nov-2023 18:55:28 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 102
+[19-Nov-2023 18:55:49 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 102
+[19-Nov-2023 18:56:09 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/delete-devices.php:104
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 104
+[19-Nov-2023 18:56:49 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/delete-devices.php:104
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 104
+[19-Nov-2023 18:56:52 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/delete-devices.php:104
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 104
+[19-Nov-2023 18:58:21 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/delete-devices.php:104
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 104
+[19-Nov-2023 18:58:25 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 102
+[19-Nov-2023 19:01:13 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 102
+[19-Nov-2023 19:01:15 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 102
+[19-Nov-2023 19:01:18 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 102
+[19-Nov-2023 19:01:20 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 102
+[19-Nov-2023 19:01:26 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/delete-devices.php:107
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 107
+[19-Nov-2023 19:01:30 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/delete-devices.php:107
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 107
+[19-Nov-2023 19:04:55 Europe/Sofia] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 112
+[19-Nov-2023 19:04:55 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on null in /home/kvbbgcom/public_html/Sirena/delete-devices.php:120
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 120
+[19-Nov-2023 19:06:21 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_result::rowCount() in /home/kvbbgcom/public_html/Sirena/delete-devices.php:120
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 120
+[19-Nov-2023 19:07:14 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/delete-devices.php:107
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 107
+[19-Nov-2023 19:07:16 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/delete-devices.php:107
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 107
+[19-Nov-2023 19:07:18 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/delete-devices.php:107
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 107
+[19-Nov-2023 19:07:46 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/delete-devices.php:107
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 107
+[19-Nov-2023 19:07:50 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/delete-devices.php:107
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 107
+[19-Nov-2023 19:07:53 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/delete-devices.php:107
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 107
+[19-Nov-2023 19:07:58 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_result::rowCount() in /home/kvbbgcom/public_html/Sirena/delete-devices.php:120
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 120
+[19-Nov-2023 19:10:27 Europe/Sofia] PHP Fatal error:  Uncaught Error: Object of class mysqli_result could not be converted to string in /home/kvbbgcom/public_html/Sirena/delete-devices.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 114
+[19-Nov-2023 19:11:23 Europe/Sofia] PHP Fatal error:  Uncaught Error: Object of class mysqli_result could not be converted to string in /home/kvbbgcom/public_html/Sirena/delete-devices.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 114
+[19-Nov-2023 19:11:27 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_result::rowCount() in /home/kvbbgcom/public_html/Sirena/delete-devices.php:120
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 120
+[19-Nov-2023 19:17:21 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_result::fetch() in /home/kvbbgcom/public_html/Sirena/delete-devices.php:129
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 129
+[19-Nov-2023 19:17:22 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_result::fetch() in /home/kvbbgcom/public_html/Sirena/delete-devices.php:129
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 129
+[19-Nov-2023 20:07:23 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[19-Nov-2023 20:07:44 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[19-Nov-2023 20:41:55 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[21-Nov-2023 16:06:46 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[21-Nov-2023 16:10:53 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 102
+[21-Nov-2023 16:51:25 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:175
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 175
+[21-Nov-2023 16:53:56 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/kvbbgcom/public_html/Sirena/edit-devices.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 29
+[21-Nov-2023 16:54:03 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/kvbbgcom/public_html/Sirena/edit-devices.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 29
+[21-Nov-2023 16:54:04 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/kvbbgcom/public_html/Sirena/edit-devices.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 29
+[21-Nov-2023 16:57:40 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/kvbbgcom/public_html/Sirena/edit-devices.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 29
+[21-Nov-2023 16:57:41 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_result::fetch() in /home/kvbbgcom/public_html/Sirena/delete-devices.php:129
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 129
+[21-Nov-2023 16:57:44 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_result::fetch() in /home/kvbbgcom/public_html/Sirena/delete-devices.php:129
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 129
+[21-Nov-2023 16:57:47 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/kvbbgcom/public_html/Sirena/edit-devices.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 29
+[21-Nov-2023 16:59:25 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/insert-device-in-db.php:441) in /home/kvbbgcom/public_html/Sirena/insert-device-in-db.php on line 445
+[21-Nov-2023 17:00:46 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_result::fetch() in /home/kvbbgcom/public_html/Sirena/delete-devices.php:129
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 129
+[21-Nov-2023 17:00:53 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_result::fetch() in /home/kvbbgcom/public_html/Sirena/delete-devices.php:129
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 129
+[21-Nov-2023 17:00:55 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_result::fetch() in /home/kvbbgcom/public_html/Sirena/delete-devices.php:129
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 129
+[21-Nov-2023 17:02:26 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_result::fetch() in /home/kvbbgcom/public_html/Sirena/delete-devices.php:129
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 129
+[21-Nov-2023 17:04:59 Europe/Sofia] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE), expecting end of file in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 151
+[21-Nov-2023 17:07:37 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/delete-devices.php:8) in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 115
+[21-Nov-2023 17:07:49 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/delete-devices.php:8) in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 115
+[21-Nov-2023 17:41:42 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/kvbbgcom/public_html/Sirena/edit-devices.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 29
+[21-Nov-2023 17:48:03 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:189
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 189
+[21-Nov-2023 17:52:12 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:197
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 197
+[21-Nov-2023 17:57:39 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-devices.php:197
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 197
+[21-Nov-2023 22:53:54 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[22-Nov-2023 07:56:55 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[22-Nov-2023 09:03:40 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[22-Nov-2023 09:21:58 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[22-Nov-2023 09:22:00 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[22-Nov-2023 09:33:30 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[22-Nov-2023 09:36:17 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[22-Nov-2023 09:36:45 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[22-Nov-2023 09:36:48 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/kvbbgcom/public_html/Sirena/show-cluster.php:114
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 114
+[24-Nov-2023 08:33:09 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/delete-devices.php:8) in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 29
+[24-Nov-2023 08:33:26 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/delete-devices.php:8) in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 29
+[24-Nov-2023 08:33:29 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/delete-devices.php:8) in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 29
+[24-Nov-2023 08:35:36 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/delete-devices.php:8) in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 29
+[24-Nov-2023 10:00:08 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/delete-devices.php:8) in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 29
+[24-Nov-2023 10:00:58 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/delete-devices.php:1) in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 21
+[24-Nov-2023 10:03:22 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/delete-devices.php:1) in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 17
+[24-Nov-2023 10:03:56 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/delete-devices.php:1) in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 17
+[24-Nov-2023 10:03:58 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/delete-devices.php:1) in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 17
+[24-Nov-2023 17:50:46 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to undefined function check_login() in /home/kvbbgcom/public_html/Sirena/edit-devices.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 6
+[24-Nov-2023 17:53:43 Europe/Sofia] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 195
+[24-Nov-2023 17:53:43 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/edit-devices.php:82) in /home/kvbbgcom/public_html/Sirena/functions.php on line 19
+[24-Nov-2023 17:54:46 Europe/Sofia] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 195
+[24-Nov-2023 17:55:08 Europe/Sofia] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 197
+[24-Nov-2023 17:55:08 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/edit-devices.php:82) in /home/kvbbgcom/public_html/Sirena/functions.php on line 19
+[24-Nov-2023 18:06:28 Europe/Sofia] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 202
+[27-Nov-2023 13:29:12 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/kvbbgcom/public_html/Sirena/edit-devices.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 38
+[27-Nov-2023 13:29:13 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/kvbbgcom/public_html/Sirena/edit-devices.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 38
+[27-Nov-2023 13:41:22 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/kvbbgcom/public_html/Sirena/edit-devices.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 38
+[27-Nov-2023 13:42:24 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/kvbbgcom/public_html/Sirena/edit-devices.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 38
+[27-Nov-2023 13:42:25 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/kvbbgcom/public_html/Sirena/edit-devices.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 38
+[27-Nov-2023 13:46:39 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/kvbbgcom/public_html/Sirena/edit-devices.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 38
+[27-Nov-2023 13:56:05 Europe/Sofia] PHP Parse error:  syntax error, unexpected '||' (T_BOOLEAN_OR) in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 77
+[27-Nov-2023 13:56:06 Europe/Sofia] PHP Parse error:  syntax error, unexpected '||' (T_BOOLEAN_OR) in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 77
+[27-Nov-2023 13:56:59 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/kvbbgcom/public_html/Sirena/edit-devices.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 38
+[27-Nov-2023 16:16:50 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/edit-devices.php:79) in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 88
+[27-Nov-2023 16:18:43 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/edit-devices.php:79) in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 88
+[27-Nov-2023 16:20:07 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/edit-devices.php:80) in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 89
+[27-Nov-2023 16:21:37 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/edit-devices.php:80) in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 89
+[27-Nov-2023 16:22:09 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/edit-devices.php:80) in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 89
+[27-Nov-2023 16:22:13 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/edit-devices.php:80) in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 89
+[27-Nov-2023 16:22:40 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/edit-devices.php:80) in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 89
+[27-Nov-2023 16:24:05 Europe/Sofia] PHP Parse error:  syntax error, unexpected '"' in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 77
+[27-Nov-2023 16:31:21 Europe/Sofia] PHP Parse error:  syntax error, unexpected '"' in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 78
+[27-Nov-2023 16:33:37 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/edit-devices.php:80) in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 90
+[27-Nov-2023 16:34:02 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/edit-devices.php:80) in /home/kvbbgcom/public_html/Sirena/edit-devices.php on line 90
+[27-Nov-2023 16:52:03 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/delete-devices.php:1) in /home/kvbbgcom/public_html/Sirena/delete-devices.php on line 17
+[27-Nov-2023 17:19:02 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/edit-cluster.php:106
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-cluster.php on line 106
+[27-Nov-2023 21:58:30 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/edit-cluster.php:78) in /home/kvbbgcom/public_html/Sirena/edit-cluster.php on line 87
+[27-Nov-2023 22:14:59 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/kvbbgcom/public_html/Sirena/delete-cluster.php:102
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/delete-cluster.php on line 102
+[30-Nov-2023 00:10:14 Europe/Sofia] PHP Parse error:  syntax error, unexpected '$result' (T_VARIABLE) in /home/kvbbgcom/public_html/Sirena/test.php on line 137
+[30-Nov-2023 00:10:15 Europe/Sofia] PHP Parse error:  syntax error, unexpected '$result' (T_VARIABLE) in /home/kvbbgcom/public_html/Sirena/test.php on line 137
+[30-Nov-2023 14:18:07 Europe/Sofia] PHP Parse error:  syntax error, unexpected end of file in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 116
+[30-Nov-2023 14:18:24 Europe/Sofia] PHP Parse error:  syntax error, unexpected end of file in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 110
+[30-Nov-2023 14:18:46 Europe/Sofia] PHP Parse error:  syntax error, unexpected end of file in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 109
+[30-Nov-2023 14:21:59 Europe/Sofia] PHP Parse error:  syntax error, unexpected end of file in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 121
+[30-Nov-2023 14:23:18 Europe/Sofia] PHP Parse error:  syntax error, unexpected '$name' (T_VARIABLE) in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 11
+[30-Nov-2023 14:23:29 Europe/Sofia] PHP Parse error:  syntax error, unexpected end of file in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 131
+[30-Nov-2023 14:44:56 Europe/Sofia] PHP Warning:  mail(): headers parameter must be string or array in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 93
+[30-Nov-2023 14:44:56 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/send_mail.php:93) in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 94
+[30-Nov-2023 14:48:19 Europe/Sofia] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 86
+[30-Nov-2023 14:48:32 Europe/Sofia] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 86
+[30-Nov-2023 14:48:42 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/send_mail.php:84) in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 88
+[30-Nov-2023 14:49:40 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/send_mail.php:84) in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 87
+[30-Nov-2023 14:52:33 Europe/Sofia] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 90
+[30-Nov-2023 14:52:45 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to undefined function clean_string() in /home/kvbbgcom/public_html/Sirena/send_mail.php:65
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 65
+[30-Nov-2023 14:53:11 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/send_mail.php:88) in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 93
+[30-Nov-2023 14:53:41 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/send_mail.php:88) in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 93
+[30-Nov-2023 14:54:41 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/send_mail.php:79) in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 83
+[30-Nov-2023 14:55:12 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/send_mail.php:79) in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 83
+[30-Nov-2023 14:55:16 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/send_mail.php:79) in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 83
+[30-Nov-2023 15:04:44 Europe/Sofia] PHP Parse error:  syntax error, unexpected end of file in /home/kvbbgcom/public_html/Sirena/add-cluster.php on line 308
+[30-Nov-2023 15:19:21 Europe/Sofia] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/kvbbgcom/public_html/Sirena/add-cluster.php on line 95
+[30-Nov-2023 15:19:21 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/add-cluster.php:78) in /home/kvbbgcom/public_html/Sirena/functions.php on line 19
+[30-Nov-2023 15:20:53 Europe/Sofia] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/kvbbgcom/public_html/Sirena/add-cluster.php on line 96
+[30-Nov-2023 15:20:53 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/add-cluster.php:79) in /home/kvbbgcom/public_html/Sirena/functions.php on line 19
+[30-Nov-2023 21:24:32 Europe/Sofia] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 164
+[30-Nov-2023 21:26:05 Europe/Sofia] PHP Parse error:  syntax error, unexpected 'fa' (T_STRING), expecting ';' or ',' in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 164
+[30-Nov-2023 21:26:07 Europe/Sofia] PHP Parse error:  syntax error, unexpected 'fa' (T_STRING), expecting ';' or ',' in /home/kvbbgcom/public_html/Sirena/show-cluster.php on line 164
+[15-Jan-2024 18:06:01 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/kvbbgcom/public_html/Sirena/edit-cluster.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-cluster.php on line 34
+[15-Jan-2024 18:06:55 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/kvbbgcom/public_html/Sirena/edit-cluster.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-cluster.php on line 34
+[15-Jan-2024 18:07:10 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/kvbbgcom/public_html/Sirena/edit-cluster.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-cluster.php on line 34
+[15-Jan-2024 18:07:32 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/kvbbgcom/public_html/Sirena/edit-cluster.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-cluster.php on line 34
+[15-Jan-2024 18:07:43 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/kvbbgcom/public_html/Sirena/edit-cluster.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/edit-cluster.php on line 34
+[29-Jan-2024 21:08:00 Europe/Sofia] PHP Parse error:  syntax error, unexpected ')' in /home/kvbbgcom/public_html/Sirena/login.php on line 29
+[31-Jan-2024 08:03:07 Europe/Sofia] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/kvbbgcom/public_html/Sirena/testing_regex_in_php.php on line 19
+[31-Jan-2024 08:03:20 Europe/Sofia] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/kvbbgcom/public_html/Sirena/testing_regex_in_php.php on line 19
+[31-Jan-2024 08:04:03 Europe/Sofia] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/kvbbgcom/public_html/Sirena/testing_regex_in_php.php on line 4
+[31-Jan-2024 08:04:05 Europe/Sofia] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/kvbbgcom/public_html/Sirena/testing_regex_in_php.php on line 4
+[31-Jan-2024 08:09:33 Europe/Sofia] PHP Fatal error:  Uncaught Error: Call to undefined function containsInvalidCharacters() in /home/kvbbgcom/public_html/Sirena/testing_regex_in_php.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/testing_regex_in_php.php on line 12
+[31-Jan-2024 08:28:13 Europe/Sofia] PHP Parse error:  syntax error, unexpected 'header' (T_STRING), expecting ';' or ',' in /home/kvbbgcom/public_html/Sirena/testing_regex_in_php.php on line 33
+[31-Jan-2024 08:28:22 Europe/Sofia] PHP Parse error:  syntax error, unexpected 'die' (T_EXIT), expecting ';' or ',' in /home/kvbbgcom/public_html/Sirena/testing_regex_in_php.php on line 34
+[04-Feb-2024 18:11:19 Europe/Sofia] PHP Parse error:  syntax error, unexpected 'Invalid' (T_STRING) in /home/kvbbgcom/public_html/Sirena/testing_regex_in_php.php on line 145
+[04-Feb-2024 18:15:08 Europe/Sofia] PHP Parse error:  syntax error, unexpected 'Invalid' (T_STRING) in /home/kvbbgcom/public_html/Sirena/testing_regex_in_php.php on line 145
+[04-Feb-2024 18:37:38 Europe/Sofia] PHP Parse error:  syntax error, unexpected '"' in /home/kvbbgcom/public_html/Sirena/testing_regex_in_php.php on line 141
+[11-Feb-2024 18:54:10 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/send_mail.php:2) in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 94
+[11-Feb-2024 18:56:11 Europe/Sofia] PHP Warning:  mail(): headers parameter must be string or array in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 14
+[11-Feb-2024 18:56:11 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/send_mail.php:14) in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 102
+[11-Feb-2024 18:58:14 Europe/Sofia] PHP Warning:  mail(): headers parameter must be string or array in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 15
+[11-Feb-2024 18:58:14 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/send_mail.php:15) in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 103
+[11-Feb-2024 18:58:17 Europe/Sofia] PHP Warning:  mail(): headers parameter must be string or array in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 15
+[11-Feb-2024 18:58:17 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/send_mail.php:15) in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 103
+[11-Feb-2024 19:01:14 Europe/Sofia] PHP Warning:  mail(): headers parameter must be string or array in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 39
+[11-Feb-2024 19:01:14 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/send_mail.php:39) in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 42
+[11-Feb-2024 19:01:24 Europe/Sofia] PHP Warning:  mail(): headers parameter must be string or array in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 39
+[11-Feb-2024 19:01:24 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/send_mail.php:2) in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 42
+[11-Feb-2024 19:01:58 Europe/Sofia] PHP Warning:  mail(): headers parameter must be string or array in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 39
+[11-Feb-2024 19:01:58 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/send_mail.php:39) in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 42
+[11-Feb-2024 19:02:00 Europe/Sofia] PHP Warning:  mail(): headers parameter must be string or array in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 39
+[11-Feb-2024 19:02:00 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/send_mail.php:2) in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 42
+[11-Feb-2024 19:03:50 Europe/Sofia] PHP Warning:  mail(): headers parameter must be string or array in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 39
+[11-Feb-2024 19:03:50 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/send_mail.php:2) in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 42
+[11-Feb-2024 23:38:11 Europe/Sofia] PHP Warning:  mail(): headers parameter must be string or array in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 2
+[11-Feb-2024 23:38:11 Europe/Sofia] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/kvbbgcom/public_html/Sirena/send_mail.php:2) in /home/kvbbgcom/public_html/Sirena/send_mail.php on line 4
+[14-Feb-2024 22:09:59 Europe/Sofia] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home/kvbbgcom/public_html/Sirena/testing_regex_in_php.php on line 331
+[14-Feb-2024 22:10:14 Europe/Sofia] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home/kvbbgcom/public_html/Sirena/testing_regex_in_php.php on line 331
+[15-Feb-2024 08:42:36 Europe/Sofia] PHP Fatal error:  Uncaught Error: Class 'GreenSMS\GreenSMS' not found in /home/kvbbgcom/public_html/Sirena/cron.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/kvbbgcom/public_html/Sirena/cron.php on line 5
