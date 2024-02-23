@@ -1,7 +1,7 @@
 <?php
-    $username = "kvbbgcom_floodPrevention";
-    $password = "kv0889909595";
-    $datebase = "kvbbgcom_floodPrevention";
+    $username = "***";
+    $password = "***";
+    $datebase = "***";
     
     try{
         $pdo = new PDO("mysql:host=localhost;database=$datebase", $username, $password);
