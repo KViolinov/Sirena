@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+ 
+ 
+ 
 void main() {
   runApp(MyApp());
 }
-
+ 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,7 +21,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
+ 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -52,7 +56,7 @@ class HomePage extends StatelessWidget {
                       builder: (context) => Ustroistva(),
                     ),
                   );
-
+ 
                 }else if (value == 'option4') {
                   Navigator.push(
                     context,
@@ -98,7 +102,7 @@ class HomePage extends StatelessWidget {
                       color: Colors.grey.withOpacity(0.5),
                       spreadRadius: 2,
                       blurRadius: 5,
-                      offset: Offset(0, 3),
+                      offset: Offset(0, 1),
                     ),
                   ],
                 ),
@@ -122,7 +126,7 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-
+ 
               // Section 2
               Container(
                 margin: EdgeInsets.symmetric(vertical: 20),
@@ -189,13 +193,13 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 class Vizualizaciq extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -231,6 +235,22 @@ class Vizualizaciq extends StatelessWidget {
   }
 }
 class Klusteri extends StatelessWidget {
+  Future<List<dynamic>> fetchData() async {
+    final apiUrl = 'http://kvb-bg.com/Sirena/api_for_cluster.php'; // Replace with your API endpoint URL
+ 
+    try {
+      final response = await http.get(Uri.parse(apiUrl));
+ 
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        throw Exception('Failed to load data');
+      }
+    } catch (e) {
+      throw Exception('Error: $e');
+    }
+  }
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -254,7 +274,40 @@ class Klusteri extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 8),
-                  // Replace the images and text with your content
+                  FutureBuilder(
+  future: fetchData(),
+  builder: (context, snapshot) {
+    if (snapshot.connectionState == ConnectionState.waiting) {
+      return CircularProgressIndicator();
+    } else if (snapshot.hasError) {
+      return Text('Error: ${snapshot.error}');
+    } else {
+      List<dynamic> data = snapshot.data ?? [];
+      return Column(
+        children: data.map((item) {
+          return ListTile(
+            title: Text('ID: ${item['id']}'),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Cluster ID: ${item['cluster_id']}'),
+                Text('User ID: ${item['user_id']}'),
+                Text('Cluster Name: ${item['cluster_name']}'),
+                Text('Cluster Description: ${item['device_description']}'),
+                Text('Cluster Geo1: ${item['cluster_geolocation1']}'),
+                Text('Cluster Geo2: ${item['cluster_geolocation2']}'),
+                Text('Cluster Critical Level: ${item['cluster_critical_level']}'),
+                Text('Cluster Email Notification: ${item['cluster_email_notation']}'),
+                Text('Cluster Phone Notification: ${item['cluster_phone_notation']}'),
+                Text('Cluster Additional Description: ${item['clutser_additional_description']}'),
+              ],
+            ),
+          );
+        }).toList(),
+      );
+    }
+  },
+),
                 ],
               ),
             ),
@@ -265,6 +318,22 @@ class Klusteri extends StatelessWidget {
   }
 }
 class Ustroistva extends StatelessWidget {
+  Future<List<dynamic>> fetchData() async {
+    final apiUrl = 'http://kvb-bg.com/Sirena/api.php'; // Replace with your API endpoint URL
+ 
+    try {
+      final response = await http.get(Uri.parse(apiUrl));
+ 
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        throw Exception('Failed to load data');
+      }
+    } catch (e) {
+      throw Exception('Error: $e');
+    }
+  }
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -288,7 +357,46 @@ class Ustroistva extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 8),
-                  // Replace the images and text with your content
+                  FutureBuilder(
+  future: fetchData(),
+  builder: (context, snapshot) {
+    if (snapshot.connectionState == ConnectionState.waiting) {
+      return CircularProgressIndicator();
+    } else if (snapshot.hasError) {
+      return Text('Error: ${snapshot.error}');
+    } else {
+      List<dynamic> data = snapshot.data ?? [];
+      return Column(
+        children: data.map((item) {
+          return ListTile(
+            title: Text('ID: ${item['id']}'),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Device ID: ${item['device_id']}'),
+                Text('Device Name: ${item['device_name']}'),
+                Text('Device MAC: ${item['device_mac']}'),
+                Text('User ID: ${item['user_id']}'),
+                Text('Cluster ID: ${item['cluster_id']}'),
+                Text('Device Description: ${item['device_description']}'),
+                Text('Device Geo1: ${item['device_geolocation_1']}'),
+                Text('Device Geo2: ${item['device_geolocation_2']}'),
+                Text('Device Wifi SSID: ${item['device_wifi_network_name']}'),
+                Text('Device Wifi PASS: ${item['device_wifi_network_password']}'),
+                Text('Device Name: ${item['device_additional_description']}'),
+                Text('Device MAC: ${item['sensor_water_1_level']}'),
+                Text('User ID: ${item['sensor_water_2_level']}'),
+                Text('Cluster ID: ${item['sensor_water_3_level']}'),
+                Text('Device Description: ${item['sensor_level_1_alert_level']}'),
+                // Add more properties as needed
+              ],
+            ),
+          );
+        }).toList(),
+      );
+    }
+  },
+),
                 ],
               ),
             ),
@@ -298,9 +406,9 @@ class Ustroistva extends StatelessWidget {
     );
   }
 }
-
-
-
+ 
+ 
+ 
 class ZaNas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -326,8 +434,8 @@ class ZaNas extends StatelessWidget {
                   ),
                   SizedBox(height: 8),
                   // Replace the images and text with your content
-                  MemberCard('img/kosi2.jpg', 'Константин Виолинов', '9 г клас\nСистемен програмист\nПМГ "Васил Друмев"\nВелико Търново'),
-                  MemberCard('img/ignatov2.jpg', 'Георги Игнатов', 'старши учител\nПМГ "Васил Друмев"\nВелико Търново'),
+                  MemberCard('http://kvb-bg.com/Sirena/img/kosi2.jpg', 'Константин Виолинов', '9 г клас\nСистемен програмист\nПМГ "Васил Друмев"\nВелико Търново'),
+                  MemberCard('http://kvb-bg.com/Sirena/img/ignatov.jpg', 'Георги Игнатов', 'старши учител\nПМГ "Васил Друмев"\nВелико Търново'),
                 ],
               ),
             ),
@@ -371,24 +479,23 @@ class ZaNas extends StatelessWidget {
   }
 }
 class MemberCard extends StatelessWidget {
-  final String imagePath;
+  final String imageUrl;
   final String name;
   final String details;
-
-  MemberCard(this.imagePath, this.name, this.details);
-
+ 
+  MemberCard(this.imageUrl, this.name, this.details);
+ 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Show more information when the card is tapped
         _showMoreInformation(context);
       },
       child: Card(
         margin: EdgeInsets.symmetric(vertical: 8),
         child: ListTile(
           leading: CircleAvatar(
-            backgroundImage: AssetImage(imagePath),
+            backgroundImage: NetworkImage(imageUrl),
             radius: 30,
           ),
           title: Text(name),
@@ -397,8 +504,7 @@ class MemberCard extends StatelessWidget {
       ),
     );
   }
-
-  // Function to show a dialog with more information
+ 
   void _showMoreInformation(BuildContext context) {
     showDialog(
       context: context,
@@ -410,7 +516,6 @@ class MemberCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(details),
-              // Add more information fields as needed
             ],
           ),
           actions: [
@@ -418,7 +523,7 @@ class MemberCard extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Затвори'),
+              child: Text('Close'),
             ),
           ],
         );
@@ -475,7 +580,7 @@ class NachinZaVruzka extends StatelessWidget {
       ),
     );
   }
-
+ 
   Widget buildContactPoint(IconData icon, String title, String detail) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
