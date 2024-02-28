@@ -162,13 +162,6 @@ class HomePage extends StatelessWidget {
                       children: [
                         Column(
                           children: [
-                            /*
-                            Image.asset(
-                              'assets/11.png',
-                              width: 80,
-                              height: 80,
-                            ),
-                            */
                             Text(
                               'Автоматизирана станция',
                               style: TextStyle(
@@ -178,6 +171,28 @@ class HomePage extends StatelessWidget {
                             ),
                             Text(
                               'Автоматизираната станция, \nбазирана на ESP32/LoRa32, \nкоято събира данни от първичните \nсензори, обработва ги и посредством \nмрежови протоколи предава данните \nкъм сървърната платформа.\n',
+                              style: TextStyle(fontSize: 16),
+                            ),
+                            Text(
+                              'Сървърна платформа',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              'Сървърната платформа за \nагрегиране и визуализация включва база \nданни за съхраняване на първичните данни, модул\n за комуникация с автоматизираните станции, модул \nза администрация, система за визуализация \nна данните, и система за известяване \nпри критични събития.',
+                              style: TextStyle(fontSize: 16),
+                            ),
+                            Text(
+                              'Мрежови агрегатор',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              'Мрежови агрегатор, който служи като \nсвоеобразен прокси сървър и концентратор \nза първичните станции и способства \nкакто за разширяване на обхвата на \nпокритие на системата, така и за намаляване \nна себестойността на автоматизираните станции.',
                               style: TextStyle(fontSize: 16),
                             ),
                           ],
@@ -238,10 +253,10 @@ class Vizualizaciq extends StatelessWidget {
 class Klusteri extends StatelessWidget {
   Future<List<dynamic>> fetchData() async {
     final apiUrl = 'http://kvb-bg.com/Sirena/api_for_cluster.php'; // Replace with your API endpoint URL
- 
+
     try {
       final response = await http.get(Uri.parse(apiUrl));
- 
+
       if (response.statusCode == 200) {
         return jsonDecode(response.body);
       } else {
@@ -251,7 +266,7 @@ class Klusteri extends StatelessWidget {
       throw Exception('Error: $e');
     }
   }
- 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -276,39 +291,36 @@ class Klusteri extends StatelessWidget {
                   ),
                   SizedBox(height: 8),
                   FutureBuilder(
-  future: fetchData(),
-  builder: (context, snapshot) {
-    if (snapshot.connectionState == ConnectionState.waiting) {
-      return CircularProgressIndicator();
-    } else if (snapshot.hasError) {
-      return Text('Error: ${snapshot.error}');
-    } else {
-      List<dynamic> data = snapshot.data ?? [];
-      return Column(
-        children: data.map((item) {
-          return ListTile(
-            title: Text('ID: ${item['id']}'),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Cluster ID: ${item['cluster_id']}'),
-                Text('User ID: ${item['user_id']}'),
-                Text('Cluster Name: ${item['cluster_name']}'),
-                Text('Cluster Description: ${item['device_description']}'),
-                Text('Cluster Geo1: ${item['cluster_geolocation1']}'),
-                Text('Cluster Geo2: ${item['cluster_geolocation2']}'),
-                Text('Cluster Critical Level: ${item['cluster_critical_level']}'),
-                Text('Cluster Email Notification: ${item['cluster_email_notation']}'),
-                Text('Cluster Phone Notification: ${item['cluster_phone_notation']}'),
-                Text('Cluster Additional Description: ${item['clutser_additional_description']}'),
-              ],
-            ),
-          );
-        }).toList(),
-      );
-    }
-  },
-),
+                    future: fetchData(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return CircularProgressIndicator();
+                      } else if (snapshot.hasError) {
+                        return Text('Error: ${snapshot.error}');
+                      } else {
+                        List<dynamic> data = snapshot.data ?? [];
+                        return DataTable(
+                          columns: [
+                            DataColumn(label: Text('ID на клъстер')),
+                            DataColumn(label: Text('Собственик')),
+                            DataColumn(label: Text('Име на клъстер')),
+                            DataColumn(label: Text('Описание на устройство')),
+                            DataColumn(label: Text('Критично ниво')),
+                          ],
+                          rows: data.map((item) {
+                            return DataRow(cells: [
+                              DataCell(Text('${item['cluster_id']}')),
+                              DataCell(Text('${item['user_id']}')),
+                              DataCell(Text('${item['cluster_name']}')),
+                              DataCell(Text('${item['cluster_description']}')),
+                              DataCell(Text('${item['cluster_critical_level']}')),
+                              
+                            ]);
+                          }).toList(),
+                        );
+                      }
+                    },
+                  ),
                 ],
               ),
             ),
@@ -321,10 +333,10 @@ class Klusteri extends StatelessWidget {
 class Ustroistva extends StatelessWidget {
   Future<List<dynamic>> fetchData() async {
     final apiUrl = 'http://kvb-bg.com/Sirena/api.php'; // Replace with your API endpoint URL
- 
+
     try {
       final response = await http.get(Uri.parse(apiUrl));
- 
+
       if (response.statusCode == 200) {
         return jsonDecode(response.body);
       } else {
@@ -334,7 +346,7 @@ class Ustroistva extends StatelessWidget {
       throw Exception('Error: $e');
     }
   }
- 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -359,45 +371,59 @@ class Ustroistva extends StatelessWidget {
                   ),
                   SizedBox(height: 8),
                   FutureBuilder(
-  future: fetchData(),
-  builder: (context, snapshot) {
-    if (snapshot.connectionState == ConnectionState.waiting) {
-      return CircularProgressIndicator();
-    } else if (snapshot.hasError) {
-      return Text('Error: ${snapshot.error}');
-    } else {
-      List<dynamic> data = snapshot.data ?? [];
-      return Column(
-        children: data.map((item) {
-          return ListTile(
-            title: Text('ID: ${item['id']}'),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Device ID: ${item['device_id']}'),
-                Text('Device Name: ${item['device_name']}'),
-                Text('Device MAC: ${item['device_mac']}'),
-                Text('User ID: ${item['user_id']}'),
-                Text('Cluster ID: ${item['cluster_id']}'),
-                Text('Device Description: ${item['device_description']}'),
-                Text('Device Geo1: ${item['device_geolocation_1']}'),
-                Text('Device Geo2: ${item['device_geolocation_2']}'),
-                Text('Device Wifi SSID: ${item['device_wifi_network_name']}'),
-                Text('Device Wifi PASS: ${item['device_wifi_network_password']}'),
-                Text('Device Name: ${item['device_additional_description']}'),
-                Text('Device MAC: ${item['sensor_water_1_level']}'),
-                Text('User ID: ${item['sensor_water_2_level']}'),
-                Text('Cluster ID: ${item['sensor_water_3_level']}'),
-                Text('Device Description: ${item['sensor_level_1_alert_level']}'),
-                // Add more properties as needed
-              ],
-            ),
-          );
-        }).toList(),
-      );
-    }
-  },
-),
+                    future: fetchData(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return CircularProgressIndicator();
+                      } else if (snapshot.hasError) {
+                        return Text('Error: ${snapshot.error}');
+                      } else {
+                        List<dynamic> data = snapshot.data ?? [];
+                        return DataTable(
+                          columns: [
+                            DataColumn(label: Text('ID')),
+                            DataColumn(label: Text('Device ID')),
+                            DataColumn(label: Text('Device Name')),
+                            DataColumn(label: Text('Device MAC')),
+                            DataColumn(label: Text('User ID')),
+                            DataColumn(label: Text('Cluster ID')),
+                            DataColumn(label: Text('Device Description')),
+                            DataColumn(label: Text('Device Geo1')),
+                            DataColumn(label: Text('Device Geo2')),
+                            DataColumn(label: Text('Device Wifi SSID')),
+                            DataColumn(label: Text('Device Wifi PASS')),
+                            DataColumn(label: Text('Device Additional Description')),
+                            DataColumn(label: Text('Sensor Water 1 Level')),
+                            DataColumn(label: Text('Sensor Water 2 Level')),
+                            DataColumn(label: Text('Sensor Water 3 Level')),
+                            DataColumn(label: Text('Sensor Level 1 Alert Level')),
+                            // Add more columns as needed
+                          ],
+                          rows: data.map((item) {
+                            return DataRow(cells: [
+                              DataCell(Text('${item['id']}')),
+                              DataCell(Text('${item['device_id']}')),
+                              DataCell(Text('${item['device_name']}')),
+                              DataCell(Text('${item['device_mac']}')),
+                              DataCell(Text('${item['user_id']}')),
+                              DataCell(Text('${item['cluster_id']}')),
+                              DataCell(Text('${item['device_description']}')),
+                              DataCell(Text('${item['device_geolocation_1']}')),
+                              DataCell(Text('${item['device_geolocation_2']}')),
+                              DataCell(Text('${item['device_wifi_network_name']}')),
+                              DataCell(Text('${item['device_wifi_network_password']}')),
+                              DataCell(Text('${item['device_additional_description']}')),
+                              DataCell(Text('${item['sensor_water_1_level']}')),
+                              DataCell(Text('${item['sensor_water_2_level']}')),
+                              DataCell(Text('${item['sensor_water_3_level']}')),
+                              DataCell(Text('${item['sensor_level_1_alert_level']}')),
+                              // Add more cells as needed
+                            ]);
+                          }).toList(),
+                        );
+                      }
+                    },
+                  ),
                 ],
               ),
             ),
