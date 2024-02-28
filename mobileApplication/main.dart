@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
  
  
  
@@ -505,31 +506,43 @@ class MemberCard extends StatelessWidget {
     );
   }
  
-  void _showMoreInformation(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(name),
-          content: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(details),
-            ],
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('Close'),
+void _showMoreInformation(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text(name),
+        content: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CircleAvatar(
+              backgroundImage: NetworkImage(imageUrl),
+              radius: 30,
+            ),
+            SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(details),
+                ],
+              ),
             ),
           ],
-        );
-      },
-    );
-  }
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text('Close'),
+          ),
+        ],
+      );
+    },
+  );
+}
 }
 class NachinZaVruzka extends StatelessWidget {
   @override
@@ -581,32 +594,23 @@ class NachinZaVruzka extends StatelessWidget {
     );
   }
  
-  Widget buildContactPoint(IconData icon, String title, String detail) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: Row(
-        children: [
-          Icon(icon, size: 40, color: Colors.blueGrey),
-          SizedBox(width: 10),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blueGrey,
-                ),
-              ),
-              Text(
-                detail,
-                style: TextStyle(fontSize: 16),
-              ),
-            ],
-          ),
-        ],
-      ),
+   Widget buildContactPoint(IconData icon, String title, String value) {
+    return ListTile(
+      leading: Icon(icon),
+      title: Text(title),
+      subtitle: Text(value),
+      onTap: () {
+        if (icon == Icons.map) {
+          // Open Google Maps with the address
+          launch('https://www.google.com/maps/search/?api=1&query=$value');
+        } else if (icon == Icons.email) {
+          // Open email app with the email address
+          launch('mailto:$value');
+        } else if (icon == Icons.phone) {
+          // Open phone app with the phone number
+          launch('tel:$value');
+        }
+      },
     );
   }
 }
