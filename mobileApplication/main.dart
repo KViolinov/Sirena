@@ -252,7 +252,7 @@ class Vizualizaciq extends StatelessWidget {
 }
 class Klusteri extends StatelessWidget {
   Future<List<dynamic>> fetchData() async {
-    final apiUrl = 'http://kvb-bg.com/Sirena/api_for_cluster.php'; // Replace with your API endpoint URL
+    final apiUrl = 'http://kvb-bg.com/Sirena/api_for_cluster.php';
 
     try {
       final response = await http.get(Uri.parse(apiUrl));
@@ -271,60 +271,72 @@ class Klusteri extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('СИРЕНА - Визуализация'),
+        title: Text('СИРЕНА - Клъстери'),
         backgroundColor: Colors.green.withOpacity(0.5),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    'Страница за Клъстери',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 8),
-                  FutureBuilder(
-                    future: fetchData(),
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return CircularProgressIndicator();
-                      } else if (snapshot.hasError) {
-                        return Text('Error: ${snapshot.error}');
-                      } else {
-                        List<dynamic> data = snapshot.data ?? [];
-                        return DataTable(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Страница с Клъстери',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 8),
+              FutureBuilder(
+                future: fetchData(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return CircularProgressIndicator();
+                  } else if (snapshot.hasError) {
+                    return Text('Error: ${snapshot.error}');
+                  } else {
+                    List<dynamic> data = snapshot.data ?? [];
+                    return SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        child: DataTable(
                           columns: [
-                            DataColumn(label: Text('ID на клъстер')),
-                            DataColumn(label: Text('Собственик')),
-                            DataColumn(label: Text('Име на клъстер')),
-                            DataColumn(label: Text('Описание на устройство')),
-                            DataColumn(label: Text('Критично ниво')),
+                            DataColumn(label: Text('ID')),
+                            DataColumn(label: Text('Cluster ID')),
+                            DataColumn(label: Text('Cluster Name')),
+                            // ... Other columns ...
                           ],
                           rows: data.map((item) {
                             return DataRow(cells: [
+                              DataCell(Text('${item['id']}')),
                               DataCell(Text('${item['cluster_id']}')),
-                              DataCell(Text('${item['user_id']}')),
-                              DataCell(Text('${item['cluster_name']}')),
-                              DataCell(Text('${item['cluster_description']}')),
-                              DataCell(Text('${item['cluster_critical_level']}')),
-                              
+                              DataCell(
+                                InkWell(
+                                  onTap: () {
+                                    // Navigate to a new screen with device information
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => DeviceDetailsScreenCluster(item),
+                                      ),
+                                    );
+                                  },
+                                  child: Text('${item['cluster_id']}'),
+                                ),
+                              ),
+                              // ... Other cells ...
                             ]);
                           }).toList(),
-                        );
-                      }
-                    },
-                  ),
-                ],
+                        ),
+                      ),
+                    );
+                  }
+                },
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -332,7 +344,7 @@ class Klusteri extends StatelessWidget {
 }
 class Ustroistva extends StatelessWidget {
   Future<List<dynamic>> fetchData() async {
-    final apiUrl = 'http://kvb-bg.com/Sirena/api.php'; // Replace with your API endpoint URL
+    final apiUrl = 'http://kvb-bg.com/Sirena/api.php';
 
     try {
       final response = await http.get(Uri.parse(apiUrl));
@@ -351,89 +363,147 @@ class Ustroistva extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('СИРЕНА - Визуализация'),
+        title: Text('СИРЕНА - Устройства'),
         backgroundColor: Colors.green.withOpacity(0.5),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    'Страница за Устройства',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 8),
-                  FutureBuilder(
-                    future: fetchData(),
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return CircularProgressIndicator();
-                      } else if (snapshot.hasError) {
-                        return Text('Error: ${snapshot.error}');
-                      } else {
-                        List<dynamic> data = snapshot.data ?? [];
-                        return DataTable(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Страница с Устройства',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 8),
+              FutureBuilder(
+                future: fetchData(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return CircularProgressIndicator();
+                  } else if (snapshot.hasError) {
+                    return Text('Error: ${snapshot.error}');
+                  } else {
+                    List<dynamic> data = snapshot.data ?? [];
+                    return SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        child: DataTable(
                           columns: [
                             DataColumn(label: Text('ID')),
                             DataColumn(label: Text('Device ID')),
                             DataColumn(label: Text('Device Name')),
-                            DataColumn(label: Text('Device MAC')),
-                            DataColumn(label: Text('User ID')),
-                            DataColumn(label: Text('Cluster ID')),
-                            DataColumn(label: Text('Device Description')),
-                            DataColumn(label: Text('Device Geo1')),
-                            DataColumn(label: Text('Device Geo2')),
-                            DataColumn(label: Text('Device Wifi SSID')),
-                            DataColumn(label: Text('Device Wifi PASS')),
-                            DataColumn(label: Text('Device Additional Description')),
-                            DataColumn(label: Text('Sensor Water 1 Level')),
-                            DataColumn(label: Text('Sensor Water 2 Level')),
-                            DataColumn(label: Text('Sensor Water 3 Level')),
-                            DataColumn(label: Text('Sensor Level 1 Alert Level')),
-                            // Add more columns as needed
+                            // ... Other columns ...
                           ],
                           rows: data.map((item) {
                             return DataRow(cells: [
                               DataCell(Text('${item['id']}')),
                               DataCell(Text('${item['device_id']}')),
-                              DataCell(Text('${item['device_name']}')),
-                              DataCell(Text('${item['device_mac']}')),
-                              DataCell(Text('${item['user_id']}')),
-                              DataCell(Text('${item['cluster_id']}')),
-                              DataCell(Text('${item['device_description']}')),
-                              DataCell(Text('${item['device_geolocation_1']}')),
-                              DataCell(Text('${item['device_geolocation_2']}')),
-                              DataCell(Text('${item['device_wifi_network_name']}')),
-                              DataCell(Text('${item['device_wifi_network_password']}')),
-                              DataCell(Text('${item['device_additional_description']}')),
-                              DataCell(Text('${item['sensor_water_1_level']}')),
-                              DataCell(Text('${item['sensor_water_2_level']}')),
-                              DataCell(Text('${item['sensor_water_3_level']}')),
-                              DataCell(Text('${item['sensor_level_1_alert_level']}')),
-                              // Add more cells as needed
+                              DataCell(
+                                InkWell(
+                                  onTap: () {
+                                    // Navigate to a new screen with device information
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => DeviceDetailsScreen(item),
+                                      ),
+                                    );
+                                  },
+                                  child: Text('${item['device_name']}'),
+                                ),
+                              ),
+                              // ... Other cells ...
                             ]);
                           }).toList(),
-                        );
-                      }
-                    },
-                  ),
-                ],
+                        ),
+                      ),
+                    );
+                  }
+                },
               ),
-            ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class DeviceDetailsScreen extends StatelessWidget {
+  final dynamic deviceData;
+
+  DeviceDetailsScreen(this.deviceData);
+
+  @override
+  Widget build(BuildContext context) {
+    // Build your UI for displaying detailed information about the selected device
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Device Details'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Device ID: ${deviceData['device_id']}'),
+            Text('Device Name: ${deviceData['device_name']}'),
+            Text('Device MAC: ${deviceData['user_mac']}'),
+            Text('User ID: ${deviceData['user_id']}'),
+            Text('Cluster ID: ${deviceData['cluster_id']}'),
+            Text('cluster Description: ${deviceData['device_description']}'),
+            Text('Device Geo1: ${deviceData['device_geolocation_1']}'),
+            Text('Device Geo2: ${deviceData['device_geolocation_2']}'),
+            Text('Device Wifi SSID: ${deviceData['device_wifi_network_name']}'),
+            Text('Device Wifi Pass: ${deviceData['device_wifi_network_password']}'),
+            Text('Device Additional Description: ${deviceData['device_additional_description']}'),
+            Text('Device Water Level 1: ${deviceData['sensor_water_1_level']}'),
+            Text('Device Water Level 2: ${deviceData['sensor_water_2_level']}'),
+            Text('Device Water Level 3: ${deviceData['sensor_water_3_level']}'),
+            Text('Sensor Level 1 Alert Level: ${deviceData['sensor_level_1_alert_level']}'),
           ],
         ),
       ),
     );
   }
 }
- 
+class DeviceDetailsScreenCluster extends StatelessWidget {
+  final dynamic deviceData;
+
+  DeviceDetailsScreenCluster(this.deviceData);
+
+  @override
+  Widget build(BuildContext context) {
+    // Build your UI for displaying detailed information about the selected device
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Cluster Details'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Cluster ID: ${deviceData['cluster_id']}'),
+            Text('User ID: ${deviceData['user_id']}'),
+            Text('Cluster Name: ${deviceData['cluster_name']}'),
+            Text('Cluster Description: ${deviceData['cluster']}'),
+            Text('Cluster Geo1: ${deviceData['cluster_geolocation1']}'),
+            Text('Cluster Geo2: ${deviceData['cluster_geolocation2']}'),
+            Text('Cluster Critical Level: ${deviceData['cluster_critical_level']}'),
+            Text('Cluster Email Notification: ${deviceData['cluster_email_notation']}'),
+            Text('Cluster Phone Notification Additional Description: ${deviceData['cluster_phone_notation']}'),
+            Text('Cluster Additional Description: ${deviceData['cluster_additional_description']}'),
+          ],
+        ),
+      ),
+    );
+  }
+}
  
  
 class ZaNas extends StatelessWidget {
