@@ -250,6 +250,8 @@ class Vizualizaciq extends StatelessWidget {
     );
   }
 }
+
+
 class Klusteri extends StatelessWidget {
   Future<List<dynamic>> fetchData() async {
     final apiUrl = 'http://kvb-bg.com/Sirena/api_for_cluster.php';
@@ -323,7 +325,7 @@ class Klusteri extends StatelessWidget {
                                       ),
                                     );
                                   },
-                                  child: Text('${item['cluster_id']}'),
+                                  child: Text('${item['cluster_name']}'),
                                 ),
                               ),
                               // ... Other cells ...
@@ -342,6 +344,43 @@ class Klusteri extends StatelessWidget {
     );
   }
 }
+class DeviceDetailsScreenCluster extends StatelessWidget {
+  final dynamic deviceData;
+
+  DeviceDetailsScreenCluster(this.deviceData);
+
+  @override
+  Widget build(BuildContext context) {
+    // Build your UI for displaying detailed information about the selected device
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Cluster Details'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Cluster ID: ${deviceData['cluster_id']}'),
+            Text('User ID: ${deviceData['user_id']}'),
+            Text('Cluster Name: ${deviceData['cluster_name']}'),
+            Text('Cluster Description: ${deviceData['cluster']}'),
+            Text('Cluster Geo1: ${deviceData['cluster_geolocation1']}'),
+            Text('Cluster Geo2: ${deviceData['cluster_geolocation2']}'),
+            Text('Cluster Critical Level: ${deviceData['cluster_critical_level']}'),
+            Text('Cluster Email Notification: ${deviceData['cluster_email_notation']}'),
+            Text('Cluster Phone Notification Additional Description: ${deviceData['cluster_phone_notation']}'),
+            Text('Cluster Additional Description: ${deviceData['cluster_additional_description']}'),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
 class Ustroistva extends StatelessWidget {
   Future<List<dynamic>> fetchData() async {
     final apiUrl = 'http://kvb-bg.com/Sirena/api.php';
@@ -372,6 +411,19 @@ class Ustroistva extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              ElevatedButton(
+                onPressed: () {
+                  // Navigate to the AddDeviceFormScreen when the button is pressed
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AddDeviceFormScreen(),
+                    ),
+                  );
+                },
+                child: Text('Добави устройство'),
+              ),
+              SizedBox(height: 16),
               Text(
                 'Страница с Устройства',
                 style: TextStyle(
@@ -424,7 +476,7 @@ class Ustroistva extends StatelessWidget {
                         ),
                       ),
                     );
-                  }
+                  } // <-- Add this closing parenthesis
                 },
               ),
             ],
@@ -434,7 +486,6 @@ class Ustroistva extends StatelessWidget {
     );
   }
 }
-
 class DeviceDetailsScreen extends StatelessWidget {
   final dynamic deviceData;
 
@@ -453,7 +504,7 @@ class DeviceDetailsScreen extends StatelessWidget {
           children: [
             Text('Device ID: ${deviceData['device_id']}'),
             Text('Device Name: ${deviceData['device_name']}'),
-            Text('Device MAC: ${deviceData['user_mac']}'),
+            Text('Device MAC: ${deviceData['device_mac']}'),
             Text('User ID: ${deviceData['user_id']}'),
             Text('Cluster ID: ${deviceData['cluster_id']}'),
             Text('cluster Description: ${deviceData['device_description']}'),
@@ -472,40 +523,238 @@ class DeviceDetailsScreen extends StatelessWidget {
     );
   }
 }
-class DeviceDetailsScreenCluster extends StatelessWidget {
-  final dynamic deviceData;
-
-  DeviceDetailsScreenCluster(this.deviceData);
+class AddDeviceFormScreen extends StatelessWidget {
+  final TextEditingController deviceNameController = TextEditingController();
+  final TextEditingController deviceDescriptionController = TextEditingController();
+  final TextEditingController deviceClusterController = TextEditingController();
+  final TextEditingController deviceGeolocation1Controller = TextEditingController();
+  final TextEditingController deviceGeolocation2Controller = TextEditingController();
+  final TextEditingController sensorWater1LevelController = TextEditingController();
+  final TextEditingController sensorWater2LevelController = TextEditingController();
+  final TextEditingController sensorWater3LevelController = TextEditingController();
+  final TextEditingController sensorLevel1AlertLevelController = TextEditingController();
+  final TextEditingController deviceWiFiNameController = TextEditingController();
+  final TextEditingController deviceWiFiPasswordController = TextEditingController();
+  final TextEditingController deviceMACController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    // Build your UI for displaying detailed information about the selected device
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cluster Details'),
+        title: Text('Страница за добавяне на устройсво'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Cluster ID: ${deviceData['cluster_id']}'),
-            Text('User ID: ${deviceData['user_id']}'),
-            Text('Cluster Name: ${deviceData['cluster_name']}'),
-            Text('Cluster Description: ${deviceData['cluster']}'),
-            Text('Cluster Geo1: ${deviceData['cluster_geolocation1']}'),
-            Text('Cluster Geo2: ${deviceData['cluster_geolocation2']}'),
-            Text('Cluster Critical Level: ${deviceData['cluster_critical_level']}'),
-            Text('Cluster Email Notification: ${deviceData['cluster_email_notation']}'),
-            Text('Cluster Phone Notification Additional Description: ${deviceData['cluster_phone_notation']}'),
-            Text('Cluster Additional Description: ${deviceData['cluster_additional_description']}'),
-          ],
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
+          child: Form(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            child: Column(
+              children: [
+                TextFormField(
+                  controller: deviceNameController,
+                  decoration: InputDecoration(labelText: 'Име на устройство'),
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'Полето е задължително';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: deviceDescriptionController,
+                  decoration: InputDecoration(labelText: 'Описание на устройство'),
+                ),
+                TextFormField(
+                  controller: deviceClusterController,
+                  decoration: InputDecoration(labelText: 'Принадлежност към клъстер'),
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'Полето е задължително';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: deviceGeolocation1Controller,
+                  decoration: InputDecoration(labelText: 'Геолокация / Географска ширина'),
+                  validator: (value) {
+                    if (value == null || !RegExp(r"[+-]?\d+(\.\d+)?").hasMatch(value.trim())) {
+                      return 'Невалидна стойност';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: deviceGeolocation2Controller,
+                  decoration: InputDecoration(labelText: 'Геолокация / Географска дължина'),
+                  validator: (value) {
+                    if (value == null || !RegExp(r"[+-]?\d+(\.\d+)?").hasMatch(value.trim())) {
+                      return 'Невалидна стойност';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: sensorWater1LevelController,
+                  decoration: InputDecoration(labelText: 'Критично ниво за известяване на сензор 1'),
+                  validator: (value) {
+                    if (value == null || !RegExp(r"[+-]?\d+").hasMatch(value.trim())) {
+                      return 'Невалидна стойност';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: sensorWater2LevelController,
+                  decoration: InputDecoration(labelText: 'Критично ниво за известяване на сензор 2'),
+                  validator: (value) {
+                    if (value == null || !RegExp(r"[+-]?\d+").hasMatch(value.trim())) {
+                      return 'Невалидна стойност';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: sensorWater3LevelController,
+                  decoration: InputDecoration(labelText: 'Критично ниво за известяване на сензор 3'),
+                  validator: (value) {
+                    if (value == null || !RegExp(r"[+-]?\d+").hasMatch(value.trim())) {
+                      return 'Невалидна стойност';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: sensorLevel1AlertLevelController,
+                  decoration: InputDecoration(labelText: 'Критично ниво за известяване на ултразвуков сензор(в метри)'),
+                  validator: (value) {
+                    if (value == null || !RegExp(r"[+-]?\d+").hasMatch(value.trim())) {
+                      return 'Невалидна стойност';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: deviceWiFiNameController,
+                  decoration: InputDecoration(labelText: 'Име на безжичната мрежа'),
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'Полето е задължително';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: deviceWiFiPasswordController,
+                  decoration: InputDecoration(labelText: 'Парола за безжичната мрежа'),
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'Полето е задължително';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: deviceMACController,
+                  decoration: InputDecoration(labelText: 'MAC адрес / сериен номер на устройството'),
+                  validator: (value) {
+                    if (value == null || !RegExp(r"([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})").hasMatch(value.trim())) {
+                      return 'Невалидна стойност';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: 16),
+                ElevatedButton(
+  onPressed: () async {
+    print('Button pressed');
+    if (Form.of(context).validate()) {
+      // Collect form data
+      Map<String, dynamic> formData = {
+        'device_name1': deviceNameController.text,
+        'device_description1': deviceDescriptionController.text,
+        'device_cluster1': deviceClusterController.text,
+        'device_geolocation11': deviceGeolocation1Controller.text,
+        'device_geolocation21': deviceGeolocation2Controller.text,
+        'sensor_water_1_level_1': sensorWater1LevelController.text,
+        'sensor_water_2_level_1': sensorWater2LevelController.text,
+        'sensor_water_3_level_1': sensorWater3LevelController.text,
+        'sensor_level_1_alert_level_1': sensorLevel1AlertLevelController.text,
+        'device_wifi_network_name1': deviceWiFiNameController.text,
+        'device_wifi_network_password1': deviceWiFiPasswordController.text,
+        'device_mac1': deviceMACController.text,
+      };
+
+      // Print the collected form data (for debugging purposes)
+      print('Form Data: $formData');
+
+      // Send data to the PHP backend
+      await sendFormDataToApi(formData);
+
+      // Navigate back to the previous screen
+      Navigator.pop(context);
+    }
+  },
+  child: Text('Добави устройство'),
+),
+                SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () {
+                    // Reset form fields
+                    deviceNameController.clear();
+                    deviceDescriptionController.clear();
+                    deviceClusterController.clear();
+                    deviceGeolocation1Controller.clear();
+                    deviceGeolocation2Controller.clear();
+                    sensorWater1LevelController.clear();
+                    sensorWater2LevelController.clear();
+                    sensorWater3LevelController.clear();
+                    sensorLevel1AlertLevelController.clear();
+                    deviceWiFiNameController.clear();
+                    deviceWiFiPasswordController.clear();
+                    deviceMACController.clear();
+                  },
+                  child: Text('Отказ'),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
   }
+
+  Future<void> sendFormDataToApi(Map<String, dynamic> formData) async {
+    final apiUrl = 'http://kvb-bg.com/Sirena/test_api_adding_devices.php';
+
+    try {
+      final response = await http.post(
+        Uri.parse(apiUrl),
+        body: formData,
+      );
+
+      if (response.statusCode == 200) {
+        // Handle the response if needed
+      } else {
+        throw Exception('Failed to add device');
+      }
+    } catch (e) {
+      throw Exception('Error: $e');
+    }
+  }
 }
  
  
+
+
+
+
+
+
+
+
+
+
 class ZaNas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
