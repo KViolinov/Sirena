@@ -33,11 +33,11 @@ float waterSensor2Value;
 float waterSensor3Value;
 
 //current wifi ssid and password for mobile hotspot
-const char WIFI_SSID[] = "B-Smart";                 //to be changed to be read by sd card in the future
-const char WIFI_PASSWORD[] = "0889909595";          //to be changed to be read by sd card in the future
+const char WIFI_SSID[] = "*******";                 //to be changed to be read by sd card in the future
+const char WIFI_PASSWORD[] = "**********";          //to be changed to be read by sd card in the future
 
 //host name for db
-String HOST_NAME = "http://kvb-bg.com/Sirena/";
+String HOST_NAME = "************************";
 
 //query string for https
 String PATH_NAME = "insert_sensordata.php";
