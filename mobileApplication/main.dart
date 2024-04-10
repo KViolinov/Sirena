@@ -666,37 +666,37 @@ class AddDeviceFormScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 16),
                 ElevatedButton(
-  onPressed: () async {
-    print('Button pressed');
-    if (Form.of(context).validate()) {
-      // Collect form data
-      Map<String, dynamic> formData = {
-        'device_name1': deviceNameController.text,
-        'device_description1': deviceDescriptionController.text,
-        'device_cluster1': deviceClusterController.text,
-        'device_geolocation11': deviceGeolocation1Controller.text,
-        'device_geolocation21': deviceGeolocation2Controller.text,
-        'sensor_water_1_level_1': sensorWater1LevelController.text,
-        'sensor_water_2_level_1': sensorWater2LevelController.text,
-        'sensor_water_3_level_1': sensorWater3LevelController.text,
-        'sensor_level_1_alert_level_1': sensorLevel1AlertLevelController.text,
-        'device_wifi_network_name1': deviceWiFiNameController.text,
-        'device_wifi_network_password1': deviceWiFiPasswordController.text,
-        'device_mac1': deviceMACController.text,
-      };
+                  onPressed: () async {
+                    print('Button pressed');
+                    if (Form.of(context).validate()) {
+                      // Collect form data
+                      Map<String, dynamic> formData = {
+                        'device_name1': deviceNameController.text,
+                        'device_description1': deviceDescriptionController.text,
+                        'device_cluster1': deviceClusterController.text,
+                        'device_geolocation11': deviceGeolocation1Controller.text,
+                        'device_geolocation21': deviceGeolocation2Controller.text,
+                        'sensor_water_1_level_1': sensorWater1LevelController.text,
+                        'sensor_water_2_level_1': sensorWater2LevelController.text,
+                        'sensor_water_3_level_1': sensorWater3LevelController.text,
+                        'sensor_level_1_alert_level_1': sensorLevel1AlertLevelController.text,
+                        'device_wifi_network_name1': deviceWiFiNameController.text,
+                        'device_wifi_network_password1': deviceWiFiPasswordController.text,
+                        'device_mac1': deviceMACController.text,
+                      };
 
-      // Print the collected form data (for debugging purposes)
-      print('Form Data: $formData');
+                      // Print the collected form data (for debugging purposes)
+                      print('Form Data: $formData');
 
-      // Send data to the PHP backend
-      await sendFormDataToApi(formData);
+                      // Send data to the PHP backend
+                      await sendFormDataToApi(formData);
 
-      // Navigate back to the previous screen
-      Navigator.pop(context);
-    }
-  },
-  child: Text('Добави устройство'),
-),
+                      // Navigate back to the previous screen
+                      Navigator.pop(context);
+                    }
+                  },
+                  child: Text('Добави устройство'),
+                ),
                 SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {
