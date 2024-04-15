@@ -383,7 +383,7 @@ class DeviceDetailsScreenCluster extends StatelessWidget {
 
 class Ustroistva extends StatelessWidget {
   Future<List<dynamic>> fetchData() async {
-    final apiUrl = 'http://kvb-bg.com/Sirena/api.php';
+    final apiUrl = 'http://kvb-bg.com/Sirena/API_folder/api.php';
 
     try {
       final response = await http.get(Uri.parse(apiUrl));
@@ -541,7 +541,7 @@ class AddDeviceFormScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Страница за добавяне на устройсво'),
+        title: Text('Страница за добавяне на устройство'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -670,7 +670,7 @@ class AddDeviceFormScreen extends StatelessWidget {
                     print('Button pressed');
                     if (Form.of(context).validate()) {
                       // Collect form data
-                      Map<String, dynamic> formData = {
+                      final formData = {
                         'device_name1': deviceNameController.text,
                         'device_description1': deviceDescriptionController.text,
                         'device_cluster1': deviceClusterController.text,
@@ -684,9 +684,6 @@ class AddDeviceFormScreen extends StatelessWidget {
                         'device_wifi_network_password1': deviceWiFiPasswordController.text,
                         'device_mac1': deviceMACController.text,
                       };
-
-                      // Print the collected form data (for debugging purposes)
-                      print('Form Data: $formData');
 
                       // Send data to the PHP backend
                       await sendFormDataToApi(formData);
@@ -713,6 +710,8 @@ class AddDeviceFormScreen extends StatelessWidget {
                     deviceWiFiNameController.clear();
                     deviceWiFiPasswordController.clear();
                     deviceMACController.clear();
+
+                    Navigator.pop(context);
                   },
                   child: Text('Отказ'),
                 ),
@@ -724,17 +723,37 @@ class AddDeviceFormScreen extends StatelessWidget {
     );
   }
 
-  Future<void> sendFormDataToApi(Map<String, dynamic> formData) async {
-    final apiUrl = 'http://kvb-bg.com/Sirena/test_api_adding_devices.php';
+
+ 
+Future<void> sendFormDataToApi(Map<String, dynamic> formData) async {
+    final apiUrl = 'http://kvb-bg.com/Sirena/API_folder/test_api_adding_devices.php';
+
+    final jsonData = jsonEncode(formData); // Convert map to JSON string
 
     try {
       final response = await http.post(
         Uri.parse(apiUrl),
-        body: formData,
+        body: jsonData,
+        headers: {"Content-Type": "application/json"}, // Set content type header
       );
 
       if (response.statusCode == 200) {
-        // Handle the response if needed
+        // Handle the response if needed (e.g., show success message)
+        /* deviceNameController.clear();
+        deviceDescriptionController.clear();
+        deviceClusterController.clear();
+        deviceGeolocation1Controller.clear();
+        deviceGeolocation2Controller.clear();
+        sensorWater1LevelController.clear();
+        sensorWater2LevelController.clear();
+        sensorWater3LevelController.clear();
+        sensorLevel1AlertLevelController.clear();
+        deviceWiFiNameController.clear();
+        deviceWiFiPasswordController.clear();
+        deviceMACController.clear(); */
+
+        // Navigate back (replace with your navigation logic)
+        // Navigator.pop(context);
       } else {
         throw Exception('Failed to add device');
       }
@@ -743,9 +762,6 @@ class AddDeviceFormScreen extends StatelessWidget {
     }
   }
 }
- 
- 
-
 
 
 
