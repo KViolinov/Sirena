@@ -3,13 +3,12 @@ import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
- 
- 
- 
+import 'dart:async';
+
 void main() {
   runApp(MyApp());
 }
- 
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
- 
+
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -49,16 +48,14 @@ class HomePage extends StatelessWidget {
                       builder: (context) => Klusteri(),
                     ),
                   );
-                }
-                else if (value == 'option3') {
+                } else if (value == 'option3') {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => Ustroistva(),
                     ),
                   );
- 
-                }else if (value == 'option4') {
+                } else if (value == 'option4') {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -127,7 +124,7 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
- 
+
               // Section 2
               Container(
                 margin: EdgeInsets.symmetric(vertical: 20),
@@ -209,14 +206,54 @@ class HomePage extends StatelessWidget {
     );
   }
 }
- 
- 
- 
- 
- 
- 
- 
-class Vizualizaciq extends StatelessWidget {
+
+class Vizualizaciq extends StatefulWidget {
+  @override
+  _VizualizaciqState createState() => _VizualizaciqState();
+}
+
+class _VizualizaciqState extends State<Vizualizaciq> {
+  // Store the fetched device data
+  List<Map<String, dynamic>> devices = [];
+
+  // Timer for automatic data refresh
+  Timer? _refreshTimer;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+    _startRefreshTimer();
+  }
+
+  @override
+  void dispose() {
+    _refreshTimer?.cancel(); // Cancel timer on widget disposal
+    super.dispose();
+  }
+
+  // Function to fetch data from the API
+  Future<void> fetchData() async {
+    final response = await http.get(
+      Uri.parse(
+          'http://kvb-bg.com/Sirena/API_folder/api_visualization.php'), // Replace with your API URL
+    );
+
+    if (response.statusCode == 200) {
+      final jsonData = jsonDecode(response.body) as List<dynamic>;
+      devices = jsonData.cast<Map<String, dynamic>>();
+      setState(() {}); // Update UI after data is fetched
+    } else {
+      print('Error fetching data: ${response.statusCode}');
+    }
+  }
+
+  // Function to start the data refresh timer
+  void _startRefreshTimer() {
+    _refreshTimer?.cancel(); // Cancel any existing timer
+    _refreshTimer = Timer.periodic(Duration(seconds: 5), (_) => fetchData());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -240,7 +277,14 @@ class Vizualizaciq extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 8),
-                  // Replace the images and text with your content
+                  // Display fetched device data
+                  if (devices.isNotEmpty)
+                    Column(
+                      children: devices
+                          .map((device) => _buildDeviceBox(device))
+                          .toList(),
+                    ),
+                  if (devices.isEmpty) Center(child: Text('No devices found')),
                 ],
               ),
             ),
@@ -249,8 +293,41 @@ class Vizualizaciq extends StatelessWidget {
       ),
     );
   }
-}
 
+  Widget _buildDeviceBox(Map<String, dynamic> device) {
+    return Container(
+      padding: EdgeInsets.all(16.0), // Add padding for content
+      margin: EdgeInsets.symmetric(vertical: 8.0), // Add spacing between boxes
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(8.0), // Add rounded corners
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start, // Align text to the left
+        children: [
+          Text(
+            'Устройство: ${device['device_name'] ?? 'N/A'}',
+            style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+          ),
+          Text(
+            'MAC адрес: ${device['device_mac']?.toString() ?? 'N/A'}',
+          ),
+          if (device['sensor_water_1_status'] == 1 &&
+              device['sensor_water_2_status'] == 1 &&
+              device['sensor_water_3_status'] == 1)
+            Text('Сензори активирани: 3'),
+          if (device['sensor_water_1_status'] == 1 &&
+              device['sensor_water_2_status'] == 1)
+            Text('Сензори активирани: 2'),
+          if (device['sensor_water_1_status'] != 1 ||
+              device['sensor_water_2_status'] != 1 ||
+              device['sensor_water_3_status'] != 1)
+            Text('Сензори активирани: 1'),
+        ],
+      ),
+    );
+  }
+}
 
 class Klusteri extends StatelessWidget {
   Future<List<dynamic>> fetchData() async {
@@ -321,7 +398,8 @@ class Klusteri extends StatelessWidget {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => DeviceDetailsScreenCluster(item),
+                                        builder: (context) =>
+                                            DeviceDetailsScreenCluster(item),
                                       ),
                                     );
                                   },
@@ -344,6 +422,7 @@ class Klusteri extends StatelessWidget {
     );
   }
 }
+
 class DeviceDetailsScreenCluster extends StatelessWidget {
   final dynamic deviceData;
 
@@ -366,20 +445,20 @@ class DeviceDetailsScreenCluster extends StatelessWidget {
             Text('Cluster Description: ${deviceData['cluster']}'),
             Text('Cluster Geo1: ${deviceData['cluster_geolocation1']}'),
             Text('Cluster Geo2: ${deviceData['cluster_geolocation2']}'),
-            Text('Cluster Critical Level: ${deviceData['cluster_critical_level']}'),
-            Text('Cluster Email Notification: ${deviceData['cluster_email_notation']}'),
-            Text('Cluster Phone Notification Additional Description: ${deviceData['cluster_phone_notation']}'),
-            Text('Cluster Additional Description: ${deviceData['cluster_additional_description']}'),
+            Text(
+                'Cluster Critical Level: ${deviceData['cluster_critical_level']}'),
+            Text(
+                'Cluster Email Notification: ${deviceData['cluster_email_notation']}'),
+            Text(
+                'Cluster Phone Notification Additional Description: ${deviceData['cluster_phone_notation']}'),
+            Text(
+                'Cluster Additional Description: ${deviceData['cluster_additional_description']}'),
           ],
         ),
       ),
     );
   }
 }
-
-
-
-
 
 class Ustroistva extends StatelessWidget {
   Future<List<dynamic>> fetchData() async {
@@ -463,7 +542,8 @@ class Ustroistva extends StatelessWidget {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => DeviceDetailsScreen(item),
+                                        builder: (context) =>
+                                            DeviceDetailsScreen(item),
                                       ),
                                     );
                                   },
@@ -486,6 +566,7 @@ class Ustroistva extends StatelessWidget {
     );
   }
 }
+
 class DeviceDetailsScreen extends StatelessWidget {
   final dynamic deviceData;
 
@@ -511,30 +592,43 @@ class DeviceDetailsScreen extends StatelessWidget {
             Text('Device Geo1: ${deviceData['device_geolocation_1']}'),
             Text('Device Geo2: ${deviceData['device_geolocation_2']}'),
             Text('Device Wifi SSID: ${deviceData['device_wifi_network_name']}'),
-            Text('Device Wifi Pass: ${deviceData['device_wifi_network_password']}'),
-            Text('Device Additional Description: ${deviceData['device_additional_description']}'),
+            Text(
+                'Device Wifi Pass: ${deviceData['device_wifi_network_password']}'),
+            Text(
+                'Device Additional Description: ${deviceData['device_additional_description']}'),
             Text('Device Water Level 1: ${deviceData['sensor_water_1_level']}'),
             Text('Device Water Level 2: ${deviceData['sensor_water_2_level']}'),
             Text('Device Water Level 3: ${deviceData['sensor_water_3_level']}'),
-            Text('Sensor Level 1 Alert Level: ${deviceData['sensor_level_1_alert_level']}'),
+            Text(
+                'Sensor Level 1 Alert Level: ${deviceData['sensor_level_1_alert_level']}'),
           ],
         ),
       ),
     );
   }
 }
+
 class AddDeviceFormScreen extends StatelessWidget {
   final TextEditingController deviceNameController = TextEditingController();
-  final TextEditingController deviceDescriptionController = TextEditingController();
+  final TextEditingController deviceDescriptionController =
+      TextEditingController();
   final TextEditingController deviceClusterController = TextEditingController();
-  final TextEditingController deviceGeolocation1Controller = TextEditingController();
-  final TextEditingController deviceGeolocation2Controller = TextEditingController();
-  final TextEditingController sensorWater1LevelController = TextEditingController();
-  final TextEditingController sensorWater2LevelController = TextEditingController();
-  final TextEditingController sensorWater3LevelController = TextEditingController();
-  final TextEditingController sensorLevel1AlertLevelController = TextEditingController();
-  final TextEditingController deviceWiFiNameController = TextEditingController();
-  final TextEditingController deviceWiFiPasswordController = TextEditingController();
+  final TextEditingController deviceGeolocation1Controller =
+      TextEditingController();
+  final TextEditingController deviceGeolocation2Controller =
+      TextEditingController();
+  final TextEditingController sensorWater1LevelController =
+      TextEditingController();
+  final TextEditingController sensorWater2LevelController =
+      TextEditingController();
+  final TextEditingController sensorWater3LevelController =
+      TextEditingController();
+  final TextEditingController sensorLevel1AlertLevelController =
+      TextEditingController();
+  final TextEditingController deviceWiFiNameController =
+      TextEditingController();
+  final TextEditingController deviceWiFiPasswordController =
+      TextEditingController();
   final TextEditingController deviceMACController = TextEditingController();
 
   @override
@@ -562,11 +656,13 @@ class AddDeviceFormScreen extends StatelessWidget {
                 ),
                 TextFormField(
                   controller: deviceDescriptionController,
-                  decoration: InputDecoration(labelText: 'Описание на устройство'),
+                  decoration:
+                      InputDecoration(labelText: 'Описание на устройство'),
                 ),
                 TextFormField(
                   controller: deviceClusterController,
-                  decoration: InputDecoration(labelText: 'Принадлежност към клъстер'),
+                  decoration:
+                      InputDecoration(labelText: 'Принадлежност към клъстер'),
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
                       return 'Полето е задължително';
@@ -576,9 +672,11 @@ class AddDeviceFormScreen extends StatelessWidget {
                 ),
                 TextFormField(
                   controller: deviceGeolocation1Controller,
-                  decoration: InputDecoration(labelText: 'Геолокация / Географска ширина'),
+                  decoration: InputDecoration(
+                      labelText: 'Геолокация / Географска ширина'),
                   validator: (value) {
-                    if (value == null || !RegExp(r"[+-]?\d+(\.\d+)?").hasMatch(value.trim())) {
+                    if (value == null ||
+                        !RegExp(r"[+-]?\d+(\.\d+)?").hasMatch(value.trim())) {
                       return 'Невалидна стойност';
                     }
                     return null;
@@ -586,9 +684,11 @@ class AddDeviceFormScreen extends StatelessWidget {
                 ),
                 TextFormField(
                   controller: deviceGeolocation2Controller,
-                  decoration: InputDecoration(labelText: 'Геолокация / Географска дължина'),
+                  decoration: InputDecoration(
+                      labelText: 'Геолокация / Географска дължина'),
                   validator: (value) {
-                    if (value == null || !RegExp(r"[+-]?\d+(\.\d+)?").hasMatch(value.trim())) {
+                    if (value == null ||
+                        !RegExp(r"[+-]?\d+(\.\d+)?").hasMatch(value.trim())) {
                       return 'Невалидна стойност';
                     }
                     return null;
@@ -596,9 +696,11 @@ class AddDeviceFormScreen extends StatelessWidget {
                 ),
                 TextFormField(
                   controller: sensorWater1LevelController,
-                  decoration: InputDecoration(labelText: 'Критично ниво за известяване на сензор 1'),
+                  decoration: InputDecoration(
+                      labelText: 'Критично ниво за известяване на сензор 1'),
                   validator: (value) {
-                    if (value == null || !RegExp(r"[+-]?\d+").hasMatch(value.trim())) {
+                    if (value == null ||
+                        !RegExp(r"[+-]?\d+").hasMatch(value.trim())) {
                       return 'Невалидна стойност';
                     }
                     return null;
@@ -606,9 +708,11 @@ class AddDeviceFormScreen extends StatelessWidget {
                 ),
                 TextFormField(
                   controller: sensorWater2LevelController,
-                  decoration: InputDecoration(labelText: 'Критично ниво за известяване на сензор 2'),
+                  decoration: InputDecoration(
+                      labelText: 'Критично ниво за известяване на сензор 2'),
                   validator: (value) {
-                    if (value == null || !RegExp(r"[+-]?\d+").hasMatch(value.trim())) {
+                    if (value == null ||
+                        !RegExp(r"[+-]?\d+").hasMatch(value.trim())) {
                       return 'Невалидна стойност';
                     }
                     return null;
@@ -616,9 +720,11 @@ class AddDeviceFormScreen extends StatelessWidget {
                 ),
                 TextFormField(
                   controller: sensorWater3LevelController,
-                  decoration: InputDecoration(labelText: 'Критично ниво за известяване на сензор 3'),
+                  decoration: InputDecoration(
+                      labelText: 'Критично ниво за известяване на сензор 3'),
                   validator: (value) {
-                    if (value == null || !RegExp(r"[+-]?\d+").hasMatch(value.trim())) {
+                    if (value == null ||
+                        !RegExp(r"[+-]?\d+").hasMatch(value.trim())) {
                       return 'Невалидна стойност';
                     }
                     return null;
@@ -626,9 +732,12 @@ class AddDeviceFormScreen extends StatelessWidget {
                 ),
                 TextFormField(
                   controller: sensorLevel1AlertLevelController,
-                  decoration: InputDecoration(labelText: 'Критично ниво за известяване на ултразвуков сензор(в метри)'),
+                  decoration: InputDecoration(
+                      labelText:
+                          'Критично ниво за известяване на ултразвуков сензор(в метри)'),
                   validator: (value) {
-                    if (value == null || !RegExp(r"[+-]?\d+").hasMatch(value.trim())) {
+                    if (value == null ||
+                        !RegExp(r"[+-]?\d+").hasMatch(value.trim())) {
                       return 'Невалидна стойност';
                     }
                     return null;
@@ -636,7 +745,8 @@ class AddDeviceFormScreen extends StatelessWidget {
                 ),
                 TextFormField(
                   controller: deviceWiFiNameController,
-                  decoration: InputDecoration(labelText: 'Име на безжичната мрежа'),
+                  decoration:
+                      InputDecoration(labelText: 'Име на безжичната мрежа'),
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
                       return 'Полето е задължително';
@@ -646,7 +756,8 @@ class AddDeviceFormScreen extends StatelessWidget {
                 ),
                 TextFormField(
                   controller: deviceWiFiPasswordController,
-                  decoration: InputDecoration(labelText: 'Парола за безжичната мрежа'),
+                  decoration:
+                      InputDecoration(labelText: 'Парола за безжичната мрежа'),
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
                       return 'Полето е задължително';
@@ -656,9 +767,12 @@ class AddDeviceFormScreen extends StatelessWidget {
                 ),
                 TextFormField(
                   controller: deviceMACController,
-                  decoration: InputDecoration(labelText: 'MAC адрес / сериен номер на устройството'),
+                  decoration: InputDecoration(
+                      labelText: 'MAC адрес / сериен номер на устройството'),
                   validator: (value) {
-                    if (value == null || !RegExp(r"([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})").hasMatch(value.trim())) {
+                    if (value == null ||
+                        !RegExp(r"([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})")
+                            .hasMatch(value.trim())) {
                       return 'Невалидна стойност';
                     }
                     return null;
@@ -674,19 +788,29 @@ class AddDeviceFormScreen extends StatelessWidget {
                         'device_name1': deviceNameController.text,
                         'device_description1': deviceDescriptionController.text,
                         'device_cluster1': deviceClusterController.text,
-                        'device_geolocation11': deviceGeolocation1Controller.text,
-                        'device_geolocation21': deviceGeolocation2Controller.text,
-                        'sensor_water_1_level_1': sensorWater1LevelController.text,
-                        'sensor_water_2_level_1': sensorWater2LevelController.text,
-                        'sensor_water_3_level_1': sensorWater3LevelController.text,
-                        'sensor_level_1_alert_level_1': sensorLevel1AlertLevelController.text,
-                        'device_wifi_network_name1': deviceWiFiNameController.text,
-                        'device_wifi_network_password1': deviceWiFiPasswordController.text,
+                        'device_geolocation11':
+                            deviceGeolocation1Controller.text,
+                        'device_geolocation21':
+                            deviceGeolocation2Controller.text,
+                        'sensor_water_1_level_1':
+                            sensorWater1LevelController.text,
+                        'sensor_water_2_level_1':
+                            sensorWater2LevelController.text,
+                        'sensor_water_3_level_1':
+                            sensorWater3LevelController.text,
+                        'sensor_level_1_alert_level_1':
+                            sensorLevel1AlertLevelController.text,
+                        'device_wifi_network_name1':
+                            deviceWiFiNameController.text,
+                        'device_wifi_network_password1':
+                            deviceWiFiPasswordController.text,
                         'device_mac1': deviceMACController.text,
                       };
 
-                      // Send data to the PHP backend
-                      await sendFormDataToApi(formData);
+                      if (Form.of(context).validate()) {
+                        // ... collect form data
+                        sendFormDataToApi(formData); // Pass context
+                      }
 
                       // Navigate back to the previous screen
                       Navigator.pop(context);
@@ -723,10 +847,9 @@ class AddDeviceFormScreen extends StatelessWidget {
     );
   }
 
-
- 
-Future<void> sendFormDataToApi(Map<String, dynamic> formData) async {
-    final apiUrl = 'http://kvb-bg.com/Sirena/API_folder/test_api_adding_devices.php';
+  Future<void> sendFormDataToApi(Map<String, dynamic> formData) async {
+    final apiUrl =
+        'http://kvb-bg.com/Sirena/API_folder/test_api_adding_devices.php';
 
     final jsonData = jsonEncode(formData); // Convert map to JSON string
 
@@ -734,7 +857,9 @@ Future<void> sendFormDataToApi(Map<String, dynamic> formData) async {
       final response = await http.post(
         Uri.parse(apiUrl),
         body: jsonData,
-        headers: {"Content-Type": "application/json"}, // Set content type header
+        headers: {
+          "Content-Type": "application/json"
+        }, // Set content type header
       );
 
       if (response.statusCode == 200) {
@@ -763,14 +888,6 @@ Future<void> sendFormDataToApi(Map<String, dynamic> formData) async {
   }
 }
 
-
-
-
-
-
-
-
-
 class ZaNas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -796,8 +913,14 @@ class ZaNas extends StatelessWidget {
                   ),
                   SizedBox(height: 8),
                   // Replace the images and text with your content
-                  MemberCard('http://kvb-bg.com/Sirena/img/kosi2.jpg', 'Константин Виолинов', '9 г клас\nСистемен програмист\nПМГ "Васил Друмев"\nВелико Търново'),
-                  MemberCard('http://kvb-bg.com/Sirena/img/ignatov.jpg', 'Георги Игнатов', 'старши учител\nПМГ "Васил Друмев"\nВелико Търново'),
+                  MemberCard(
+                      'http://kvb-bg.com/Sirena/img/kosi2.jpg',
+                      'Константин Виолинов',
+                      '9 г клас\nСистемен програмист\nПМГ "Васил Друмев"\nВелико Търново'),
+                  MemberCard(
+                      'http://kvb-bg.com/Sirena/img/ignatov.jpg',
+                      'Георги Игнатов',
+                      'старши учител\nПМГ "Васил Друмев"\nВелико Търново'),
                 ],
               ),
             ),
@@ -840,13 +963,14 @@ class ZaNas extends StatelessWidget {
     );
   }
 }
+
 class MemberCard extends StatelessWidget {
   final String imageUrl;
   final String name;
   final String details;
- 
+
   MemberCard(this.imageUrl, this.name, this.details);
- 
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -866,45 +990,46 @@ class MemberCard extends StatelessWidget {
       ),
     );
   }
- 
-void _showMoreInformation(BuildContext context) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: Text(name),
-        content: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CircleAvatar(
-              backgroundImage: NetworkImage(imageUrl),
-              radius: 30,
-            ),
-            SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(details),
-                ],
+
+  void _showMoreInformation(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(name),
+          content: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CircleAvatar(
+                backgroundImage: NetworkImage(imageUrl),
+                radius: 30,
               ),
+              SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(details),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Close'),
             ),
           ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: Text('Close'),
-          ),
-        ],
-      );
-    },
-  );
+        );
+      },
+    );
+  }
 }
-}
+
 class NachinZaVruzka extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -939,8 +1064,10 @@ class NachinZaVruzka extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      buildContactPoint(Icons.map, 'Адрес', 'гр. Велико Търново, \nул. "Вела Благоева" №10'),
-                      buildContactPoint(Icons.email, 'Електронна поща', 'info-300122@edu.mon.bg'),
+                      buildContactPoint(Icons.map, 'Адрес',
+                          'гр. Велико Търново, \nул. "Вела Благоева" №10'),
+                      buildContactPoint(Icons.email, 'Електронна поща',
+                          'info-300122@edu.mon.bg'),
                       buildContactPoint(Icons.phone, 'Телефон', '062/ 629 506'),
                     ],
                   ),
@@ -954,8 +1081,8 @@ class NachinZaVruzka extends StatelessWidget {
       ),
     );
   }
- 
-   Widget buildContactPoint(IconData icon, String title, String value) {
+
+  Widget buildContactPoint(IconData icon, String title, String value) {
     return ListTile(
       leading: Icon(icon),
       title: Text(title),
