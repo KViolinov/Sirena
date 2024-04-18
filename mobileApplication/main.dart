@@ -284,7 +284,8 @@ class _VizualizaciqState extends State<Vizualizaciq> {
                           .map((device) => _buildDeviceBox(device))
                           .toList(),
                     ),
-                  if (devices.isEmpty) Center(child: Text('No devices found')),
+                  if (devices.isEmpty)
+                    Center(child: Text('Не бяха намерени устройства')),
                 ],
               ),
             ),
@@ -329,6 +330,11 @@ class _VizualizaciqState extends State<Vizualizaciq> {
   }
 }
 
+
+
+
+
+
 class Klusteri extends StatelessWidget {
   Future<List<dynamic>> fetchData() async {
     final apiUrl = 'http://kvb-bg.com/Sirena/api_for_cluster.php';
@@ -359,6 +365,18 @@ class Klusteri extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AddClusterFormScreen(),
+                    ),
+                  );
+                },
+                child: Text('Добави Клъстер'),
+              ),
+              SizedBox(height: 16),
               Text(
                 'Страница с Клъстери',
                 style: TextStyle(
@@ -430,7 +448,6 @@ class DeviceDetailsScreenCluster extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Build your UI for displaying detailed information about the selected device
     return Scaffold(
       appBar: AppBar(
         title: Text('Cluster Details'),
@@ -439,26 +456,266 @@ class DeviceDetailsScreenCluster extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Cluster ID: ${deviceData['cluster_id']}'),
-            Text('User ID: ${deviceData['user_id']}'),
-            Text('Cluster Name: ${deviceData['cluster_name']}'),
-            Text('Cluster Description: ${deviceData['cluster']}'),
-            Text('Cluster Geo1: ${deviceData['cluster_geolocation1']}'),
-            Text('Cluster Geo2: ${deviceData['cluster_geolocation2']}'),
-            Text(
-                'Cluster Critical Level: ${deviceData['cluster_critical_level']}'),
-            Text(
-                'Cluster Email Notification: ${deviceData['cluster_email_notation']}'),
-            Text(
-                'Cluster Phone Notification Additional Description: ${deviceData['cluster_phone_notation']}'),
-            Text(
-                'Cluster Additional Description: ${deviceData['cluster_additional_description']}'),
+            _buildDetailBox('ID на клъстера:', deviceData['cluster_id']),
+            _buildDetailBox('ID на потребители:', deviceData['user_id']),
+            _buildDetailBox('Име на клъстера:', deviceData['cluster_name']),
+            _buildDetailBox('Описание на клъстера:', deviceData['cluster']),
+            _buildDetailBox(
+                'Географска ширина:', deviceData['cluster_geolocation1']),
+            _buildDetailBox(
+                'Географска широчина:', deviceData['cluster_geolocation2']),
+            _buildDetailBox('Критично ниво на клъстера:',
+                deviceData['cluster_critical_level']),
+            _buildDetailBox('Имейл за известяване на клъстера:',
+                deviceData['cluster_email_notation']),
+            _buildDetailBox('Телефонен номер за известяване на клъстера:',
+                deviceData['cluster_phone_notation']),
+            _buildDetailBox('Сопълнителна информация за клъстера:',
+                deviceData['cluster_additional_description']),
           ],
         ),
       ),
     );
   }
+
+  Widget _buildDetailBox(String label, dynamic value) {
+    return Container(
+      padding: EdgeInsets.all(8.0),
+      margin: EdgeInsets.symmetric(vertical: 4.0),
+      child: Row(
+        children: [
+          Text(
+            label,
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          Spacer(),
+          Text(value?.toString() ?? 'N/A'), // Use null-safety operator
+        ],
+      ),
+    );
+  }
 }
+
+class AddClusterFormScreen extends StatefulWidget {
+  @override
+  _AddClusterFormScreenState createState() => _AddClusterFormScreenState();
+}
+
+class _AddClusterFormScreenState extends State<AddClusterFormScreen> {
+  final _formKey = GlobalKey<FormState>();
+
+  final _deviceNameController = TextEditingController();
+  final _deviceDescriptionController = TextEditingController();
+  final _deviceClusterController = TextEditingController();
+  final _deviceGeolocation1Controller = TextEditingController();
+  final _deviceGeolocation2Controller = TextEditingController();
+  final _sensorWater1LevelController = TextEditingController();
+  final _sensorWater2LevelController = TextEditingController();
+  final _sensorWater3LevelController = TextEditingController();
+  final _sensorLevel1AlertLevelController = TextEditingController();
+  final _deviceWiFiNameController = TextEditingController();
+  final _deviceWiFiPasswordController = TextEditingController();
+  final _deviceMACController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Страница за добавяне на клъстер'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            child: Column(
+              children: [
+                TextFormField(
+                  controller: _deviceNameController,
+                  decoration: InputDecoration(labelText: 'Име на клъстер'),
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'Полето е задължително';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: _deviceDescriptionController,
+                  decoration: InputDecoration(labelText: 'Описание на клъстер'),
+                ),
+                TextFormField(
+                  controller: _deviceGeolocation1Controller,
+                  decoration: InputDecoration(
+                      labelText: 'Геолокация / Географска ширина'),
+                  validator: (value) {
+                    if (value == null ||
+                        !RegExp(r"[+-]?\d+(\.\d+)?").hasMatch(value.trim())) {
+                      return 'Невалидна стойност';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: _deviceGeolocation2Controller,
+                  decoration: InputDecoration(
+                      labelText: 'Геолокация / Географска дължина'),
+                  validator: (value) {
+                    if (value == null ||
+                        !RegExp(r"[+-]?\d+(\.\d+)?").hasMatch(value.trim())) {
+                      return 'Невалидна стойност';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: _sensorWater1LevelController,
+                  decoration: InputDecoration(
+                      labelText: 'Критично ниво за известяване'),
+                  validator: (value) {
+                    if (value == null ||
+                        !RegExp(r"[+-]?\d+").hasMatch(value.trim())) {
+                      return 'Невалидна стойност';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: _deviceWiFiNameController,
+                  decoration:
+                      InputDecoration(labelText: 'Имейл за известяване'),
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'Полето е задължително';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: _deviceWiFiPasswordController,
+                  decoration:
+                      InputDecoration(labelText: 'Телефон за известяване'),
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'Полето е задължително';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: _deviceMACController,
+                  decoration: InputDecoration(
+                      labelText: 'Допълнителна информация за клъстера'),
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'Полето е задължително';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () async {
+                    if (_formKey.currentState!.validate()) {
+                      // Collect form data
+                      final formData = {
+                        'device_name1': _deviceNameController.text,
+                        'device_description1':
+                            _deviceDescriptionController.text,
+                        'device_cluster1': _deviceClusterController.text,
+                        'device_geolocation11':
+                            _deviceGeolocation1Controller.text,
+                        'device_geolocation21':
+                            _deviceGeolocation2Controller.text,
+                        'sensor_water_1_level_1':
+                            _sensorWater1LevelController.text,
+                        'sensor_water_2_level_1':
+                            _sensorWater2LevelController.text,
+                        'sensor_water_3_level_1':
+                            _sensorWater3LevelController.text,
+                        'sensor_level_1_alert_level_1':
+                            _sensorLevel1AlertLevelController.text,
+                        'device_wifi_network_name1':
+                            _deviceWiFiNameController.text,
+                        'device_wifi_network_password1':
+                            _deviceWiFiPasswordController.text,
+                        'device_mac1': _deviceMACController.text,
+                      };
+
+                      // Send form data to API (implementation needed)
+                      sendFormDataToApi(formData); // Pass context
+                    }
+                  },
+                  child: Text('Добави устройство'),
+                ),
+                SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () {
+                    // Reset form fields
+                    _deviceNameController.clear();
+                    _deviceDescriptionController.clear();
+                    _deviceClusterController.clear();
+                    _deviceGeolocation1Controller.clear();
+                    _deviceGeolocation2Controller.clear();
+                    _sensorWater1LevelController.clear();
+                    _sensorWater2LevelController.clear();
+                    _sensorWater3LevelController.clear();
+                    _sensorLevel1AlertLevelController.clear();
+                    _deviceWiFiNameController.clear();
+                    _deviceWiFiPasswordController.clear();
+                    _deviceMACController.clear();
+
+                    Navigator.pop(context);
+                  },
+                  child: Text('Отказ'),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future<void> sendFormDataToApi(Map<String, dynamic> formData) async {
+    // Implement your API call here
+    // Replace with your actual API endpoint and logic
+
+    final apiUrl =
+        'http://replace-with-your-api-url'; // Replace with your API URL
+
+    final jsonData = jsonEncode(formData);
+
+    try {
+      final response = await http.post(
+        Uri.parse(apiUrl),
+        body: jsonData,
+        headers: {
+          "Content-Type": "application/json"
+        }, // Set content type header
+      );
+
+      if (response.statusCode == 200) {
+        // Handle the response if needed (e.g., show success message)
+        /* deviceNameController.clear();
+         deviceDescriptionController.clear();
+         // ... clear other controllers
+         */
+
+        // Navigate back (replace with your navigation logic)
+        // Navigator.pop(context);
+      } else {
+        throw Exception('Failed to add device');
+      }
+    } catch (e) {
+      throw Exception('Error: $e');
+    }
+  }
+}
+
+
+
 
 class Ustroistva extends StatelessWidget {
   Future<List<dynamic>> fetchData() async {
@@ -574,7 +831,6 @@ class DeviceDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Build your UI for displaying detailed information about the selected device
     return Scaffold(
       appBar: AppBar(
         title: Text('Device Details'),
@@ -583,26 +839,52 @@ class DeviceDetailsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Device ID: ${deviceData['device_id']}'),
-            Text('Device Name: ${deviceData['device_name']}'),
-            Text('Device MAC: ${deviceData['device_mac']}'),
-            Text('User ID: ${deviceData['user_id']}'),
-            Text('Cluster ID: ${deviceData['cluster_id']}'),
-            Text('cluster Description: ${deviceData['device_description']}'),
-            Text('Device Geo1: ${deviceData['device_geolocation_1']}'),
-            Text('Device Geo2: ${deviceData['device_geolocation_2']}'),
-            Text('Device Wifi SSID: ${deviceData['device_wifi_network_name']}'),
-            Text(
-                'Device Wifi Pass: ${deviceData['device_wifi_network_password']}'),
-            Text(
-                'Device Additional Description: ${deviceData['device_additional_description']}'),
-            Text('Device Water Level 1: ${deviceData['sensor_water_1_level']}'),
-            Text('Device Water Level 2: ${deviceData['sensor_water_2_level']}'),
-            Text('Device Water Level 3: ${deviceData['sensor_water_3_level']}'),
-            Text(
-                'Sensor Level 1 Alert Level: ${deviceData['sensor_level_1_alert_level']}'),
+            _buildDetailBox('ID на устройството:', deviceData['device_id']),
+            _buildDetailBox(
+                'Името на устройството:', deviceData['device_name']),
+            _buildDetailBox(
+                'MAC адрес на устройството:', deviceData['device_mac']),
+            _buildDetailBox('ID на потребителя:', deviceData['user_id']),
+            _buildDetailBox('ID на клъстера:', deviceData['cluster_id']),
+            _buildDetailBox(
+                'Описание на устройството:', deviceData['device_description']),
+            _buildDetailBox(
+                'Географска ширина:', deviceData['device_geolocation_1']),
+            _buildDetailBox(
+                'Географска широчина:', deviceData['device_geolocation_2']),
+            _buildDetailBox('Wifi SSID на устройството:',
+                deviceData['device_wifi_network_name']),
+            _buildDetailBox('Wifi Парола на устройсвтото:',
+                deviceData['device_wifi_network_password']),
+            _buildDetailBox('Допълнителна информация за устройството:',
+                deviceData['device_additional_description']),
+            _buildDetailBox(
+                'Ниво на сенрзор 1:', deviceData['sensor_water_1_level']),
+            _buildDetailBox(
+                'Ниво на сенрзор 2:', deviceData['sensor_water_2_level']),
+            _buildDetailBox(
+                'Ниво на сенрзор 3:', deviceData['sensor_water_3_level']),
+            _buildDetailBox('Sensor Level 1 Alert Level:',
+                deviceData['sensor_level_1_alert_level']),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildDetailBox(String label, dynamic value) {
+    return Container(
+      padding: EdgeInsets.all(8.0),
+      margin: EdgeInsets.symmetric(vertical: 4.0),
+      child: Row(
+        children: [
+          Text(
+            label,
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          Spacer(),
+          Text(value?.toString() ?? 'N/A'), // Use null-safety operator
+        ],
       ),
     );
   }
@@ -888,6 +1170,10 @@ class AddDeviceFormScreen extends StatelessWidget {
   }
 }
 
+
+
+
+
 class ZaNas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -914,13 +1200,13 @@ class ZaNas extends StatelessWidget {
                   SizedBox(height: 8),
                   // Replace the images and text with your content
                   MemberCard(
-                      'http://kvb-bg.com/Sirena/img/kosi2.jpg',
+                      'http://kvb-bg.com/Sirena/img/koceto.png',
                       'Константин Виолинов',
                       '9 г клас\nСистемен програмист\nПМГ "Васил Друмев"\nВелико Търново'),
                   MemberCard(
                       'http://kvb-bg.com/Sirena/img/ignatov.jpg',
                       'Георги Игнатов',
-                      'старши учител\nПМГ "Васил Друмев"\nВелико Търново'),
+                      'Старши учител\nПМГ "Васил Друмев"\nВелико Търново'),
                 ],
               ),
             ),
@@ -1021,7 +1307,7 @@ class MemberCard extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Close'),
+              child: Text('Затвори'),
             ),
           ],
         );
