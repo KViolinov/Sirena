@@ -207,6 +207,9 @@ class HomePage extends StatelessWidget {
   }
 }
 
+
+
+
 class Vizualizaciq extends StatefulWidget {
   @override
   _VizualizaciqState createState() => _VizualizaciqState();
