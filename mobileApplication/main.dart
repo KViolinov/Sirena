@@ -207,9 +207,6 @@ class HomePage extends StatelessWidget {
   }
 }
 
-
-
-
 class Vizualizaciq extends StatefulWidget {
   @override
   _VizualizaciqState createState() => _VizualizaciqState();
@@ -332,11 +329,6 @@ class _VizualizaciqState extends State<Vizualizaciq> {
     );
   }
 }
-
-
-
-
-
 
 class Klusteri extends StatelessWidget {
   Future<List<dynamic>> fetchData() async {
@@ -473,7 +465,7 @@ class DeviceDetailsScreenCluster extends StatelessWidget {
                 deviceData['cluster_email_notation']),
             _buildDetailBox('Телефонен номер за известяване на клъстера:',
                 deviceData['cluster_phone_notation']),
-            _buildDetailBox('Сопълнителна информация за клъстера:',
+            _buildDetailBox('Допълнителна информация за клъстера:',
                 deviceData['cluster_additional_description']),
           ],
         ),
@@ -716,9 +708,6 @@ class _AddClusterFormScreenState extends State<AddClusterFormScreen> {
     }
   }
 }
-
-
-
 
 class Ustroistva extends StatelessWidget {
   Future<List<dynamic>> fetchData() async {
@@ -1172,10 +1161,6 @@ class AddDeviceFormScreen extends StatelessWidget {
     }
   }
 }
-
-
-
-
 
 class ZaNas extends StatelessWidget {
   @override
