@@ -856,7 +856,7 @@ class DeviceDetailsScreen extends StatelessWidget {
                 'Ниво на сенрзор 2:', deviceData['sensor_water_2_level']),
             _buildDetailBox(
                 'Ниво на сенрзор 3:', deviceData['sensor_water_3_level']),
-            _buildDetailBox('Sensor Level 1 Alert Level:',
+            _buildDetailBox('Ниво за ултразвуков сензор:',
                 deviceData['sensor_level_1_alert_level']),
           ],
         ),
