@@ -4,8 +4,6 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:async';
-import 'package:mysql1/mysql1.dart';
-
 void main() {
   runApp(MyApp());
 }
@@ -38,30 +36,22 @@ class HomePage extends StatelessWidget {
                 if (value == 'option1') {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => Vizualizaciq(),
-                    ),
+                    MaterialPageRoute(builder: (context) => Vizualizaciq()),
                   );
                 } else if (value == 'option2') {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => ZaProekta(),
-                    ),
+                    MaterialPageRoute(builder: (context) => ZaProekta()),
                   );
                 } else if (value == 'option3') {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => Realizaciq(),
-                    ),
+                    MaterialPageRoute(builder: (context) => Realizaciq()),
                   );
                 } else if (value == 'option4') {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => ZaNas(),
-                    ),
+                    MaterialPageRoute(builder: (context) => ZaNas()),
                   );
                 }
               },
@@ -89,17 +79,29 @@ class HomePage extends StatelessWidget {
           ],
         ),
         body: Center(
-          child: Image.network(
-            'http://kvb-bg.com/Sirena/img/logo-sirena.png', // Replace this with your actual image URL
-            loadingBuilder: (context, child, progress) {
-              return progress == null ? child : CircularProgressIndicator();
-            },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center, // Center content vertically
+            children: [
+              Image.network(
+                'http://kvb-bg.com/Sirena/img/logo-sirena.png', // Replace this with your actual image URL
+                loadingBuilder: (context, child, progress) {
+                  return progress == null ? child : CircularProgressIndicator();
+                },
+              ),
+              SizedBox(height: 1.0), // Add spacing between image and text
+              Text(
+                'СИРЕНА - "Система за Известяване и Ранна Евакуация при Наводнения и Аварии"',
+                style: TextStyle(fontSize: 30.0),
+                textAlign: TextAlign.center,
+              ),
+            ],
           ),
         ),
       ),
     );
   }
 }
+
 
 class Vizualizaciq extends StatefulWidget {
   @override
@@ -250,11 +252,11 @@ class _VizualizaciqState extends State<Vizualizaciq> {
 Color getColorByStatus(int status) {
   switch (status) {
     case 3:
-      return Colors.red; // Red for critical status
+      return Colors.red.shade800; // Red for critical status
     case 2:
-      return Colors.orange; // Orange for warning status
+      return Colors.orange.shade800; // Orange for warning status
     case 1:
-      return Colors.yellow; // Yellow for caution status
+      return Colors.yellow.shade800; // Yellow for caution status
     default:
       return Colors.green; // Black for normal status
   }
@@ -388,81 +390,6 @@ class ZaProekta extends StatelessWidget {
                   ],
                 ),
               ),
-
-              // Section 2
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 20),
-                padding: EdgeInsets.all(20),
-                color: Colors.grey[200],
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Технологично решение',
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue,
-                          ),
-                        ),
-                        SizedBox(width: 10),
-                        Container(
-                          width: 50,
-                          height: 2,
-                          color: Colors.blue,
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 10),
-                    Divider(),
-                    SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Column(
-                          children: [
-                            Text(
-                              'Автоматизирана станция',
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              'Автоматизираната станция, \nбазирана на ESP32/LoRa32, \nкоято събира данни от първичните \nсензори, обработва ги и посредством \nмрежови протоколи предава данните \nкъм сървърната платформа.\n',
-                              style: TextStyle(fontSize: 16),
-                            ),
-                            Text(
-                              'Сървърна платформа',
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              'Сървърната платформа за \nагрегиране и визуализация включва база \nданни за съхраняване на първичните данни, модул\n за комуникация с автоматизираните станции, модул \nза администрация, система за визуализация \nна данните, и система за известяване \nпри критични събития.',
-                              style: TextStyle(fontSize: 16),
-                            ),
-                            Text(
-                              'Мрежови агрегатор',
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              'Мрежови агрегатор, който служи като \nсвоеобразен прокси сървър и концентратор \nза първичните станции и способства \nкакто за разширяване на обхвата на \nпокритие на системата, така и за намаляване \nна себестойността на автоматизираните станции.',
-                              style: TextStyle(fontSize: 16),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
             ],
           ),
         ),
@@ -489,42 +416,6 @@ class Realizaciq extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              // Section 1
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 20),
-                padding: EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 5,
-                      offset: Offset(0, 1),
-                    ),
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Наводненията са пряко следствие от валежи с висок интензитет и значително количество, съчетано с неподходяща инфраструктура за отвеждане на екстремното количество водни маси. \nПрез последните години честотата на подобни метеорологични явления се увеличава, както в резултат на настъпващите климатични промени, така и в резултат на човешката дейност (презастрояване, обезлесяване). \nЩетите от подобни събития се измерват в милиони лева, разрушена инфраструктура, а понякога и в човешки животи.',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                          Text(
-                            'Основната цел на проекта е да разработи цялостна платформа за мониторинг на водните нива чрез система от автоматизирани станции за измерване, базирани на инженерната платформа ESP32/LoRa32. За целта ще бъде разработен инженерен прототип на автоматизирана станция, която ще позволява измерване на водните нива чрез 2 различни способа: \n(1) непрекъснато измерване на водното ниво чрез ултразвук, и \n(2) измерване за достигане на предварително дефинирани критични нива. Станцията ще подава събраната информация към собствен сървър на платформата, на който данните ще бъдат съхранявани и обработвани, а резултатите ще се достъпни за визуализация за крайните потребители.',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              // Section 2
               Container(
                 margin: EdgeInsets.symmetric(vertical: 20),
                 padding: EdgeInsets.all(20),
@@ -532,7 +423,7 @@ class Realizaciq extends StatelessWidget {
                 child: Column(
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
                           'Технологично решение',
@@ -554,7 +445,7 @@ class Realizaciq extends StatelessWidget {
                     Divider(),
                     SizedBox(height: 10),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Column(
                           children: [
@@ -605,6 +496,8 @@ class Realizaciq extends StatelessWidget {
     );
   }
 }
+
+
 
 class MemberCard extends StatelessWidget {
   final String imageUrl;
